@@ -38,12 +38,6 @@ This code lab has the following sections:
 - [AngularDart tutorial][5]
 
 
-### Feedback
-
-At the end, if you have a few minutes, please fill
-out our [anonymous feedback form][feedback].
-
-
 ### Credits
 
 This code lab is based on the Dart code lab
