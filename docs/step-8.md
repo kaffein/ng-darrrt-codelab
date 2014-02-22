@@ -69,7 +69,7 @@ Run `piratebadge.html`. Type in content that is all in lowercase, and  see
 that the pirate name the is capitalized.
 
 ### Learn more about
- - [Introducing Filters](https://github.com/angular/angular.dart.tutorial/wiki/Introducing-filters-and-services#introducing-filters)
+ - [Introducing Filters](https://angulardart.org/tutorial/07-ch05-filter-service.html)
 
 ### Problems?
 Check your code against the files in [8-filter](../web/8-filter).
