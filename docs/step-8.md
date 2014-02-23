@@ -16,7 +16,7 @@ Create a file `filter/capitalize_filter.dart` in your work directory and
 paste the following content:
 
 ```Dart
-library category_filter;
+library capitalize_filter;
 
 import 'package:angular/angular.dart';
 
