@@ -24,7 +24,7 @@ Go to the `dart` directory and double-click **DartEditor**.
 
 ###  Get the sample code.
 
-[Download the sample code.](https://github.com/shailen/ng-darrrt-codelab/archive/master.zip)
+[Download the sample code.](https://github.com/angular/ng-darrrt-codelab/archive/master.zip)
 
 Unzip the ZIP file,
 which creates a directory called `ng-darrrt-codelab-master`.

@@ -1,4 +1,4 @@
-library category_filter;
+library capitalize_filter;
 
 import 'package:angular/angular.dart';
 
