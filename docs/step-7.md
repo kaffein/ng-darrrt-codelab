@@ -206,7 +206,7 @@ button look like this:
 Save your changes and run your app.
 
 ### Problems?
-Check your code against the files in [6-service](../web/6-service).
+Check your code against the files in [7-service](../web/7-service).
 - [piratebadge.html](../web/7-service/piratebadge.html)
 - [piratebadge.dart](../web/7-service/piratebadge.dart)
 - [piratebadge.json](../web/7-service/piratenames.json)
