@@ -120,7 +120,7 @@ class BadgesController {
 
 We've added a private `_name` field that we'll later bind into the UI, and
 we've defined a getter and a setter to get and set its value. The
-setter also sets the `firstName` and `appelation` fields of the
+setter also sets the `firstName` and `appellation` fields of the
 `PirateBadge` object. Every time the value of `_name` changes, the change is
 reflected in `pn`, the `PirateName` object.
 
