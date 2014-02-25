@@ -52,7 +52,7 @@ import 'dart:async' show Future;
 Ignore the 'Unused import' warning from the Editor. You'll soon be using the
 import.
 
-In `BadgesController` class, replace the `names` and `appelations` lists with
+In `BadgesController` class, replace the `names` and `appellations` lists with
 these static, empty lists:
 
 ```Dart
@@ -103,7 +103,7 @@ Here are some things to note about `_loadData`:
 a way to get a value in the future. For JavaScript developers: Futures are
 similar to Promises.
 * The callback function for `then()` executes when the Future completes
-successfully, and the pirate names and appelations are read from the
+successfully, and the pirate names and appellations are read from the
 response  data.
 
 Add a `dataLoaded` field to `BadgesController` and set it to `false`:
