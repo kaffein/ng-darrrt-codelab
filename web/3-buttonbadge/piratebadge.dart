@@ -13,6 +13,7 @@ import 'dart:mirrors';
     selector: '[badges]',
     publishAs: 'ctrl')
 class BadgesController {
+  static const DEFAULT_NAME = 'Anne Bonney';
   String name = '';
 
   BadgesController();
@@ -21,7 +22,7 @@ class BadgesController {
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" : "Aye! Gimme a name!";
 
   generateName() {
-    name = 'Anne Bonney';
+    name = DEFAULT_NAME;
   }
 }
 

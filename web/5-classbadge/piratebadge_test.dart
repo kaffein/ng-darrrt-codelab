@@ -11,13 +11,12 @@ main() {
   tearDown(tearDownInjector);
 
   group('pirate badge', () {
-    var name = 'misko';
-
     setUp(module((Module m) {
       m.install(new PirateModule());
     }));
 
     test('should load recipes', inject((BadgesController ctrl) {
+      expect(BadgesController.names.length, greaterThan(0));
       expect(ctrl.inputIsNotEmpty, isFalse);
       expect(ctrl.label, 'Aye! Gimme a name!');
     }));
@@ -25,7 +24,7 @@ main() {
     test('should generate name', inject((BadgesController ctrl) {
       expect(ctrl.name, isEmpty);
       ctrl.generateName();
-      expect(ctrl.name, BadgesController.DEFAULT_NAME);
+      expect(BadgesController.names.contains(ctrl.name), isTrue);
     }));
   });
 }

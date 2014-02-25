@@ -5,27 +5,21 @@ import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
 import 'piratebadge.dart' show PirateModule, BadgesController;
+import 'badge/badge_component.dart';
 
 main() {
   setUp(setUpInjector);
   tearDown(tearDownInjector);
 
   group('pirate badge', () {
-    var name = 'misko';
+    TestBed tb;
 
     setUp(module((Module m) {
       m.install(new PirateModule());
-    }));
+      inject((TestBed testBed) => tb = testBed);
+      inject((BadgesController _ctrl) => tb.rootScope.ctrl = _ctrl);
+      inject((BadgeComponent _cmp) => tb.rootScope.cmp = _cmp);
 
-    test('should load recipes', inject((BadgesController ctrl) {
-      expect(ctrl.inputIsNotEmpty, isFalse);
-      expect(ctrl.label, 'Aye! Gimme a name!');
-    }));
-
-    test('should generate name', inject((BadgesController ctrl) {
-      expect(ctrl.name, isEmpty);
-      ctrl.generateName();
-      expect(ctrl.name, BadgesController.DEFAULT_NAME);
     }));
   });
 }
