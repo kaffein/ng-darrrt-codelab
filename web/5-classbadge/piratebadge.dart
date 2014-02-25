@@ -52,8 +52,6 @@ class BadgesController {
   generateName() {
     var randomName = _oneRandom(names);
     name = randomName;
-    pn..firstName = randomName
-      ..appellation = _oneRandom(appellations);
   }
 
   String _oneRandom(List<String> list) {
@@ -61,8 +59,13 @@ class BadgesController {
   }
 }
 
+class PirateModule extends Module {
+  PirateModule() {
+    type(BadgesController);
+    type(BadgeComponent);
+  }
+}
+
 void main() {
-  ngBootstrap(module: new Module()
-    ..type(BadgesController)
-    ..type(BadgeComponent));
+  ngBootstrap(module: new PirateModule());
 }

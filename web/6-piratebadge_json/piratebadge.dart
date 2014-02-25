@@ -53,8 +53,8 @@ class BadgesController {
 
   set name(newName) {
     _name = newName;
-    pn = new PirateName(name,
-        appellations[new Random().nextInt(appellations.length)]);
+    pn..firstName = name
+      ..appellation = appellations[new Random().nextInt(appellations.length)];
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
@@ -65,15 +65,19 @@ class BadgesController {
   generateName() {
     var randomName = _oneRandom(names);
     name = randomName;
-    pn..firstName = randomName
-      ..appellation = _oneRandom(appellations);
   }
 
   String _oneRandom(List<String> list) => list[new Random().nextInt(list.length)];
 }
 
+
+class PirateModule extends Module {
+  PirateModule() {
+    type(BadgesController);
+    type(BadgeComponent);
+  }
+}
+
 void main() {
-  ngBootstrap(module: new Module()
-    ..type(BadgesController)
-    ..type(BadgeComponent));
+  ngBootstrap(module: new PirateModule());
 }
