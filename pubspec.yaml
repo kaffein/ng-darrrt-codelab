@@ -1,8 +1,0 @@
-name: ng_darrrt_codelab
-description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
-dependencies:
-  angular: 0.9.6
-  shadow_dom: any
-  browser: any
-  unittest: any
-  js: any
