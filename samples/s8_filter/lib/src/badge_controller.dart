@@ -7,14 +7,10 @@ library s8_filter.badge_controller;
 import 'package:angular/angular.dart';
 
 import 'package:s8_filter/src/service/names_service.dart';
+import 'package:s8_filter/src/model.dart' show PirateName;
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
-
-class PirateName {
-  String firstName, appellation;
-  PirateName([this.firstName = '', this.appellation = '']);
-}
 
 @NgController(
     selector: '[badge-controller]',

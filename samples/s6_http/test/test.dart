@@ -23,19 +23,20 @@ main() {
     Injector injector;
     MockHttpBackend backend;
     BadgeController badgeController;
+    var name = "Misko";
+    var appellation = "Magnificent";
 
     setUp((){
       inject((Injector _injector, MockHttpBackend _backend) {
 
         backend = _backend;
         injector = _injector;
-        backend.expectGET('piratenames.json').respond('''{"names": [ "Anne"],
-        "appellations": [ "Awesome"]}''');
+        backend.expectGET('piratenames.json').respond('''{"names": [$name],
+        "appellations": [$appellation]}''');
       });
     });
 
     test('should fetch pirate names', async(() {
-
       expect(BadgeController.names, isEmpty);
       expect(BadgeController.appellations, isEmpty);
 
@@ -47,15 +48,15 @@ main() {
       backend.flush();
       microLeap();
 
-      expect(BadgeController.names, ["Anne"]);
-      expect(BadgeController.appellations, ["Awesome"]);
+      expect(BadgeController.names, [name]);
+      expect(BadgeController.appellations, [appellation]);
       expect(badgeController.dataLoaded, isTrue);
     }));
 
     test('should set the pirate name', async(() {
       badgeController = injector.get(BadgeController);
-      badgeController.name ="Foo";
-      expect(badgeController.pirateName, "Foo the Awesome");
+      badgeController.name = name;
+      expect(badgeController.pirateName, "$name the $appellation");
     }));
   });
 }

@@ -8,18 +8,17 @@ import 'package:angular/angular.dart';
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
-
 import 'dart:math' show Random;
 
-class PirateName {
-  String firstName, appellation;
-  PirateName([this.firstName = '', this.appellation = '']);
-}
+import 'package:s5_model/src/model.dart';
 
 @NgController(
     selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
+  static const ARRR = "Arrr! Write yer name!";
+  static const AYE = "Aye! Gimme a name!";
+
   static const List names = const [
     'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
     'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
@@ -49,8 +48,7 @@ class BadgeController {
     "Aye! Gimme a name!";
 
   generateName() {
-    var randomName = _oneRandom(names);
-    name = randomName;
+    name = _oneRandom(names);
   }
 
   String _oneRandom(List<String> list) {

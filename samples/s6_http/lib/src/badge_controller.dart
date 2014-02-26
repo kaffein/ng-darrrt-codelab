@@ -8,13 +8,10 @@ import 'dart:async' show Future;
 import 'dart:math' show Random;
 import 'package:angular/angular.dart';
 
+import 'package:s6_http/src/model.dart' show PirateName;
+
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
-
-class PirateName {
-  String firstName, appellation;
-  PirateName([this.firstName = '', this.appellation = '']);
-}
 
 @NgController(
     selector: '[badge-controller]',

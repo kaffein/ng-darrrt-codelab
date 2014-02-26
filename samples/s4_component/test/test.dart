@@ -21,5 +21,20 @@ main() {
       inject((BadgeController _ctrl) => tb.rootScope.ctrl = _ctrl);
       inject((BadgeComponent _cmp) => tb.rootScope.cmp = _cmp);
     }));
+
+    test('initial state', (){
+      expect(tb.rootScope.ctrl.name, isEmpty);
+      expect(tb.rootScope.cmp.name, isNull);
+    });
+
+    test('binding', () {
+      // DOES NOT WORK
+      tb.rootScope.ctrl.name = 'foo';
+      expect(tb.rootScope.cmp.name, 'foo');
+    });
+
+    test('', () {
+      // Testing the component DOM.
+    });
   });
 }
