@@ -8,12 +8,12 @@ import 'package:angular/angular.dart';
 
 import 'package:use_filter/src/service/names_service.dart';
 import 'package:use_filter/src/badge/badge_component.dart';
-import 'package:use_filter/src/badges_controller.dart';
+import 'package:use_filter/src/badge_controller.dart';
 import 'package:use_filter/src/filter/capitalize_filter.dart';
 
 class PirateModule extends Module {
   PirateModule() {
-    type(BadgesController);
+    type(BadgeController);
     type(NamesService);
     type(CapitalizeFilter);
     type(BadgeComponent);

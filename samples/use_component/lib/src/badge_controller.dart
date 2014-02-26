@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_component.badges_controller;
+library use_component.badge_controller;
 
 import 'package:angular/angular.dart';
 
@@ -12,7 +12,7 @@ import 'dart:mirrors';
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
+class BadgeController {
   static const DEFAULT_NAME = 'Anne Bonney';
   String name = '';
 

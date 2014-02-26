@@ -2,14 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_filter.badges_controller;
+library use_model.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:use_filter/src/service/names_service.dart';
-
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
+
+import 'dart:math' show Random;
 
 class PirateName {
   String firstName, appellation;
@@ -19,15 +19,19 @@ class PirateName {
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
-  NamesService ns;
+class BadgeController {
+  static const List names = const [
+    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
+    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
+
+  static const List appellations = const [
+    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];
 
   PirateName pn = new PirateName();
 
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
-
-  BadgesController(this.ns);
 
   String _name = '';
 
@@ -35,23 +39,21 @@ class BadgesController {
 
   set name(newName) {
     _name = newName;
-    ns.randomAppellation().then((appellation) {
-      pn..firstName = newName
-        ..appellation = appellation;
-    });
+    pn..firstName = name
+      ..appellation = _oneRandom(appellations);
   }
+
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
   generateName() {
-    return ns.randomAppellation()
-        .then((_appellation) => pn.appellation = _appellation)
-        .then((_) => ns.randomName())
-        .then((_name) {
-          pn.firstName = _name;
-          name = pn.firstName;
-        });
+    var randomName = _oneRandom(names);
+    name = randomName;
+  }
+
+  String _oneRandom(List<String> list) {
+    return list[new Random().nextInt(list.length)];
   }
 }

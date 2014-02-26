@@ -10,7 +10,7 @@ import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
 
 import 'package:fetch_json/src/pirate_module.dart';
-import 'package:fetch_json/src/badges_controller.dart';
+import 'package:fetch_json/src/badge_controller.dart';
 
 main() {
   setUp(() {
@@ -22,7 +22,7 @@ main() {
   group('fetching data', () {
     Injector injector;
     MockHttpBackend backend;
-    BadgesController badgesController;
+    BadgeController badgeController;
 
     setUp((){
       inject((Injector _injector, MockHttpBackend _backend) {
@@ -36,26 +36,26 @@ main() {
 
     test('should fetch pirate names', async(() {
 
-      expect(BadgesController.names, isEmpty);
-      expect(BadgesController.appellations, isEmpty);
+      expect(BadgeController.names, isEmpty);
+      expect(BadgeController.appellations, isEmpty);
 
-      badgesController = injector.get(BadgesController);
-      expect(badgesController.dataLoaded, isFalse);
-      expect(badgesController.pirateName, isEmpty);
+      badgeController = injector.get(BadgeController);
+      expect(badgeController.dataLoaded, isFalse);
+      expect(badgeController.pirateName, isEmpty);
 
       microLeap();
       backend.flush();
       microLeap();
 
-      expect(BadgesController.names, ["Anne"]);
-      expect(BadgesController.appellations, ["Awesome"]);
-      expect(badgesController.dataLoaded, isTrue);
+      expect(BadgeController.names, ["Anne"]);
+      expect(BadgeController.appellations, ["Awesome"]);
+      expect(badgeController.dataLoaded, isTrue);
     }));
 
     test('should set the pirate name', async(() {
-      badgesController = injector.get(BadgesController);
-      badgesController.name ="Foo";
-      expect(badgesController.pirateName, "Foo the Awesome");
+      badgeController = injector.get(BadgeController);
+      badgeController.name ="Foo";
+      expect(badgeController.pirateName, "Foo the Awesome");
     }));
   });
 }

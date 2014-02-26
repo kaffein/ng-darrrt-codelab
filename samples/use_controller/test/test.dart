@@ -5,7 +5,7 @@ import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
 import 'package:use_controller/src/pirate_module.dart' show PirateModule;
-import 'package:use_controller/src/badges_controller.dart' show BadgesController;
+import 'package:use_controller/src/badge_controller.dart' show BadgeController;
 
 main() {
   setUp(setUpInjector);
@@ -18,15 +18,15 @@ main() {
       m.install(new PirateModule());
     }));
 
-    test('should load recipes', inject((BadgesController ctrl) {
+    test('should load recipes', inject((BadgeController ctrl) {
       expect(ctrl.inputIsNotEmpty, isFalse);
       expect(ctrl.label, 'Aye! Gimme a name!');
     }));
 
-    test('should generate name', inject((BadgesController ctrl) {
+    test('should generate name', inject((BadgeController ctrl) {
       expect(ctrl.name, isEmpty);
       ctrl.generateName();
-      expect(ctrl.name, BadgesController.DEFAULT_NAME);
+      expect(ctrl.name, BadgeController.DEFAULT_NAME);
     }));
   });
 }

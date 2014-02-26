@@ -7,11 +7,11 @@ library use_service.pirate_module;
 import 'package:use_service/src/service/names_service.dart';
 import 'package:angular/angular.dart';
 import 'package:use_service/src/badge/badge_component.dart';
-import 'package:use_service/src/badges_controller.dart';
+import 'package:use_service/src/badge_controller.dart';
 
 class PirateModule extends Module {
   PirateModule() {
-    type(BadgesController);
+    type(BadgeController);
     type(NamesService);
     type(BadgeComponent);
   }

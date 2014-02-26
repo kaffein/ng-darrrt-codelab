@@ -2,14 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_model.badges_controller;
+library use_service.badge_controller;
 
 import 'package:angular/angular.dart';
 
+import 'package:use_service/src/service/names_service.dart';
+
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
-
-import 'dart:math' show Random;
 
 class PirateName {
   String firstName, appellation;
@@ -19,19 +19,15 @@ class PirateName {
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
-  static const List names = const [
-    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
-    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
-
-  static const List appellations = const [
-    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
-    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];
+class BadgeController {
+  NamesService ns;
 
   PirateName pn = new PirateName();
 
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
+
+  BadgeController(this.ns);
 
   String _name = '';
 
@@ -39,8 +35,10 @@ class BadgesController {
 
   set name(newName) {
     _name = newName;
-    pn..firstName = name
-      ..appellation = _oneRandom(appellations);
+    ns.randomAppellation().then((appellation) {
+      pn..firstName = newName
+        ..appellation = appellation;
+    });
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
@@ -48,12 +46,7 @@ class BadgesController {
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
-  generateName() {
-    var randomName = _oneRandom(names);
-    name = randomName;
-  }
-
-  String _oneRandom(List<String> list) {
-    return list[new Random().nextInt(list.length)];
-  }
+  generateName() => ns.randomName().then((_name) {
+    name = _name;
+  });
 }

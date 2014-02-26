@@ -5,12 +5,12 @@
 library fetch_json.pirate_module;
 
 import 'package:angular/angular.dart';
-import 'package:fetch_json/src/badges_controller.dart';
+import 'package:fetch_json/src/badge_controller.dart';
 import 'package:fetch_json/src/badge/badge_component.dart';
 
 class PirateModule extends Module {
   PirateModule() {
-    type(BadgesController);
+    type(BadgeController);
     type(BadgeComponent);
   }
 }

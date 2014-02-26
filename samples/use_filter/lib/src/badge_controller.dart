@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_service.badges_controller;
+library use_filter.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:use_service/src/service/names_service.dart';
+import 'package:use_filter/src/service/names_service.dart';
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
@@ -19,7 +19,7 @@ class PirateName {
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
+class BadgeController {
   NamesService ns;
 
   PirateName pn = new PirateName();
@@ -27,7 +27,7 @@ class BadgesController {
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
 
-  BadgesController(this.ns);
+  BadgeController(this.ns);
 
   String _name = '';
 
@@ -40,13 +40,18 @@ class BadgesController {
         ..appellation = appellation;
     });
   }
-
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
-  generateName() => ns.randomName().then((_name) {
-    name = _name;
-  });
+  generateName() {
+    return ns.randomAppellation()
+        .then((_appellation) => pn.appellation = _appellation)
+        .then((_) => ns.randomName())
+        .then((_name) {
+          pn.firstName = _name;
+          name = pn.firstName;
+        });
+  }
 }

@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library fetch_json.badges_controller;
+library fetch_json.badge_controller;
 
 import 'dart:async' show Future;
 import 'dart:math' show Random;
@@ -19,7 +19,7 @@ class PirateName {
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
+class BadgeController {
   static List<String> names = [];
   static List<String> appellations = [];
 
@@ -31,7 +31,7 @@ class BadgesController {
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
 
-  BadgesController(this._http) {
+  BadgeController(this._http) {
     _loadData()
         .then((_) => dataLoaded = true)
         .catchError((error) {
