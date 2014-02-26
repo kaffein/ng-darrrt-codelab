@@ -2,15 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library fetch_json.test;
+library s6_http.test;
 
 import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
 
-import 'package:fetch_json/src/pirate_module.dart';
-import 'package:fetch_json/src/badge_controller.dart';
+import 'package:s6_http/src/pirate_module.dart';
+import 'package:s6_http/src/badge_controller.dart';
 
 main() {
   setUp(() {

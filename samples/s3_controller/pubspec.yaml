@@ -1,4 +1,4 @@
-name: use_controller
+name: s3_controller
 description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
 dependencies:
   angular: 0.9.6

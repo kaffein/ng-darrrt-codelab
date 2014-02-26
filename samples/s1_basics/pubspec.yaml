@@ -1,4 +1,4 @@
-name: get_started
+name: s1_basics
 description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
 dependencies:
   angular: 0.9.6

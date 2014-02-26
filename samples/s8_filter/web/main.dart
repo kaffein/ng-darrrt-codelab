@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_filter.main;
+library s8_filter.main;
 
 import 'package:angular/angular.dart';
 
-import 'package:use_filter/src/pirate_module.dart';
+import 'package:s8_filter/src/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

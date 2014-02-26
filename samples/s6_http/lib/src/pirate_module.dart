@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library fetch_json.pirate_module;
+library s6_http.pirate_module;
 
 import 'package:angular/angular.dart';
-import 'package:fetch_json/src/badge_controller.dart';
-import 'package:fetch_json/src/badge/badge_component.dart';
+import 'package:s6_http/src/badge_controller.dart';
+import 'package:s6_http/src/badge/badge_component.dart';
 
 class PirateModule extends Module {
   PirateModule() {

@@ -1,4 +1,4 @@
-library use_controller.test;
+library s3_controller.test;
 
 import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';

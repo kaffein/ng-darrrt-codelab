@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_filter.filter.capitalize_filter;
+library s8_filter.filter.capitalize_filter;
 
 import 'package:angular/angular.dart';
 

@@ -1,11 +1,11 @@
-library use_model.test;
+library s5_model.test;
 
 import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
-import 'package:use_model/src/badge_controller.dart';
-import 'package:use_model/src/pirate_module.dart';
+import 'package:s5_model/src/badge_controller.dart';
+import 'package:s5_model/src/pirate_module.dart';
 
 main() {
   setUp(setUpInjector);

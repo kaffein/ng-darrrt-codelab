@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library fetch_json.main;
+library s6_http.main;
 
 import 'package:angular/angular.dart';
-import 'package:fetch_json/src/pirate_module.dart';
+import 'package:s6_http/src/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

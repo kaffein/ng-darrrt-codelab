@@ -1,4 +1,4 @@
-name: bind_data
+name: s2_binding
 description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
 dependencies:
   angular: 0.9.6

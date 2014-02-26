@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_model.main;
+library s5_model.main;
 
 import 'package:angular/angular.dart';
-import 'package:use_model/src/pirate_module.dart';
+import 'package:s5_model/src/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

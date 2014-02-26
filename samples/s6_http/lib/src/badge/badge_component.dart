@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library fetch_json.badge.badge_component;
+library s6_http.badge.badge_component;
 
 import 'package:angular/angular.dart';
 

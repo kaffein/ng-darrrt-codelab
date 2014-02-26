@@ -1,12 +1,12 @@
-library use_component.test;
+library s4_component.test;
 
 import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
-import 'package:use_component/src/badge_controller.dart';
-import 'package:use_component/src/pirate_module.dart';
-import 'package:use_component/src/badge/badge_component.dart';
+import 'package:s4_component/src/badge_controller.dart';
+import 'package:s4_component/src/pirate_module.dart';
+import 'package:s4_component/src/badge/badge_component.dart';
 
 main() {
   setUp(setUpInjector);

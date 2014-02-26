@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library use_controller.main;
+library s3_controller.main;
 
 import 'package:angular/angular.dart';
-import 'package:use_controller/src/pirate_module.dart';
+import 'package:s3_controller/src/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

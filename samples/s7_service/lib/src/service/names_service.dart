@@ -1,4 +1,4 @@
-library use_service.service.names_service;
+library s7_service.service.names_service;
 
 import 'package:angular/angular.dart';
 import 'dart:async';
