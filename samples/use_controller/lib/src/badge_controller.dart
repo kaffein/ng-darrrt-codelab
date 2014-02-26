@@ -7,7 +7,7 @@ library use_controller.badge_controller;
 import 'package:angular/angular.dart';
 
 @NgController(
-    selector: '[badges]',
+    selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
   static const DEFAULT_NAME = 'Anne Bonney';

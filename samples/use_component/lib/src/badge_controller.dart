@@ -10,7 +10,7 @@ import 'package:angular/angular.dart';
 import 'dart:mirrors';
 
 @NgController(
-    selector: '[badges]',
+    selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
   static const DEFAULT_NAME = 'Anne Bonney';

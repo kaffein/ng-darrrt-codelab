@@ -17,7 +17,7 @@ class PirateName {
 }
 
 @NgController(
-    selector: '[badges]',
+    selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
   NamesService ns;
