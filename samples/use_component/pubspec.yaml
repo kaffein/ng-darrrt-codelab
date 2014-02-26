@@ -1,0 +1,8 @@
+name: use_component
+description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
+dependencies:
+  angular: 0.9.6
+  browser: any
+  js: any
+  shadow_dom: any
+  unittest: any
