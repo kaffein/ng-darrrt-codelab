@@ -5,7 +5,7 @@
 library s3_controller.pirate_module;
 
 import 'package:angular/angular.dart';
-import 'package:use_controller/src/badge_controller.dart';
+import 'package:s3_controller/src/badge_controller.dart';
 
 class PirateModule extends Module {
   PirateModule() {

@@ -6,7 +6,7 @@ library s8_filter.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:use_filter/src/service/names_service.dart';
+import 'package:s8_filter/src/service/names_service.dart';
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';

@@ -5,8 +5,8 @@
 library s5_model.pirate_module;
 
 import 'package:angular/angular.dart';
-import 'package:use_model/src/badge/badge_component.dart';
-import 'package:use_model/src/badge_controller.dart';
+import 'package:s5_model/src/badge/badge_component.dart';
+import 'package:s5_model/src/badge_controller.dart';
 
 class PirateModule extends Module {
   PirateModule() {
