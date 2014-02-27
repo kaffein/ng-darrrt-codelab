@@ -8,12 +8,15 @@ import 'package:s4_component/badge_controller.dart';
 import 'package:s4_component/pirate_module.dart';
 import 'package:s4_component/components/badge_component.dart';
 
+import 'dart:html' show HttpRequest, querySelector;
+
 main() {
   setUp(setUpInjector);
   tearDown(tearDownInjector);
 
   group('pirate badge', () {
     TestBed tb;
+    var name = "misko";
 
     setUp(module((Module m) {
       m.install(new PirateModule());
@@ -22,19 +25,24 @@ main() {
       inject((BadgeComponent _cmp) => tb.rootScope.cmp = _cmp);
     }));
 
-    test('initial state', (){
+    solo_test('initial state', (){
       expect(tb.rootScope.ctrl.name, isEmpty);
       expect(tb.rootScope.cmp.name, isNull);
     });
 
-    test('binding', () {
-      // DOES NOT WORK
-      tb.rootScope.ctrl.name = 'foo';
-      expect(tb.rootScope.cmp.name, 'foo');
-    });
+    test('DOM structure', () {
+      var path = 'packages/s4_component/components/badge_component.html';
+      HttpRequest.getString(path).then((_template) {
+        new MockHttpBackend().expect('GET').respond(_template);
+        tb.compile(_template.trim());
 
-    test('', () {
-      // Testing the component DOM.
+        var el = tb.rootElement.querySelector('span');
+        expect(el.innerHtml, isEmpty);
+
+        tb.rootScope.cmp.name = name;
+        tb.rootScope.$digest();
+        expect(el.innerHtml, name);
+      });
     });
   });
 }
