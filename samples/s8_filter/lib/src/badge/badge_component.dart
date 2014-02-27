@@ -8,8 +8,8 @@ import 'package:angular/angular.dart';
 
 @NgComponent(
     selector: 'badge',
-    templateUrl: '../lib/src/badge/badge_component.html',
-    cssUrl: '../lib/src/badge/badge_component.css',
+    templateUrl: 'packages/s8_filter/src/badge/badge_component.html',
+    cssUrl: 'packages/s8_filter/src/badge/badge_component.css',
     publishAs: 'cmp'
 )
 class BadgeComponent {

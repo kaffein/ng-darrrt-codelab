@@ -15,7 +15,7 @@ class NamesService {
 
   Future _loadData() {
     if (names != null) return new Future.value(true);
-    return _http.get('../lib/assets/piratenames.json')
+    return _http.get('packages/s7_service/assets/piratenames.json')
       .then((HttpResponse response) {
         names = response.data['names'];
         appellations = response.data['appellations'];

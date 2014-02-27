@@ -37,7 +37,7 @@ class BadgeController {
   }
 
   Future _loadData() {
-    return _http.get('../lib/assets/piratenames.json').then((HttpResponse response) {
+    return _http.get('packages/s6_http/assets/piratenames.json').then((HttpResponse response) {
       names = response.data['names'];
       appellations = response.data['appellations'];
     });
