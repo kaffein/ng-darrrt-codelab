@@ -6,8 +6,8 @@ library s7_service.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:s7_service/src/service/names_service.dart';
-import 'package:s7_service/src/model.dart' show PirateName;
+import 'package:s7_service/service/names_service.dart';
+import 'package:s7_service/model.dart' show PirateName;
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';

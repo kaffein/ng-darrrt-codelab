@@ -2,20 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library s8_filter.pirate_module;
+library s4_component.pirate_module;
 
 import 'package:angular/angular.dart';
-
-import 'package:s8_filter/src/service/names_service.dart';
-import 'package:s8_filter/src/badge/badge_component.dart';
-import 'package:s8_filter/src/badge_controller.dart';
-import 'package:s8_filter/src/filter/capitalize_filter.dart';
+import 'package:s4_component/components/badge_component.dart';
+import 'package:s4_component/badge_controller.dart';
 
 class PirateModule extends Module {
   PirateModule() {
     type(BadgeController);
-    type(NamesService);
-    type(CapitalizeFilter);
     type(BadgeComponent);
   }
 }

@@ -2,28 +2,35 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library s8_filter.badge_controller;
+library s5_model.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:s8_filter/src/service/names_service.dart';
-import 'package:s8_filter/src/model.dart' show PirateName;
-
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
+import 'dart:math' show Random;
+
+import 'package:s5_model/model.dart';
 
 @NgController(
     selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
-  NamesService ns;
+  static const ARRR = "Arrr! Write yer name!";
+  static const AYE = "Aye! Gimme a name!";
+
+  static const List names = const [
+    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
+    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
+
+  static const List appellations = const [
+    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];
 
   PirateName pn = new PirateName();
 
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
-
-  BadgeController(this.ns);
 
   String _name = '';
 
@@ -31,23 +38,20 @@ class BadgeController {
 
   set name(newName) {
     _name = newName;
-    ns.randomAppellation().then((appellation) {
-      pn..firstName = newName
-        ..appellation = appellation;
-    });
+    pn..firstName = name
+      ..appellation = _oneRandom(appellations);
   }
+
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
   generateName() {
-    return ns.randomAppellation()
-        .then((_appellation) => pn.appellation = _appellation)
-        .then((_) => ns.randomName())
-        .then((_name) {
-          pn.firstName = _name;
-          name = pn.firstName;
-        });
+    name = _oneRandom(names);
+  }
+
+  String _oneRandom(List<String> list) {
+    return list[new Random().nextInt(list.length)];
   }
 }

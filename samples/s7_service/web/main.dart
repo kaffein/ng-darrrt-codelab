@@ -6,7 +6,7 @@ library s7_service.main;
 
 import 'package:angular/angular.dart';
 
-import 'package:s7_service/src/pirate_module.dart';
+import 'package:s7_service/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

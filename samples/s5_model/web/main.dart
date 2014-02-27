@@ -5,7 +5,7 @@
 library s5_model.main;
 
 import 'package:angular/angular.dart';
-import 'package:s5_model/src/pirate_module.dart';
+import 'package:s5_model/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

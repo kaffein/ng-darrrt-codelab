@@ -9,8 +9,8 @@ import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
 
-import 'package:s6_http/src/pirate_module.dart';
-import 'package:s6_http/src/badge_controller.dart';
+import 'package:s6_http/pirate_module.dart';
+import 'package:s6_http/badge_controller.dart';
 
 main() {
   setUp(() {

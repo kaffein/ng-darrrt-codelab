@@ -5,7 +5,7 @@
 library s6_http.main;
 
 import 'package:angular/angular.dart';
-import 'package:s6_http/src/pirate_module.dart';
+import 'package:s6_http/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());

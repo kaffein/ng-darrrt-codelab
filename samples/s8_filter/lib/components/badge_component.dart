@@ -2,14 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library s7_service.badge_component;
+library s8_filter.badge.badge_component;
 
 import 'package:angular/angular.dart';
 
 @NgComponent(
     selector: 'badge',
-    templateUrl: 'packages/s7_service/src/badge/badge_component.html',
-    cssUrl: 'packages/s7_service/src/badge/badge_component.css',
+    templateUrl: 'packages/s8_filter/components/badge_component.html',
+    cssUrl: 'packages/s8_filter/components/badge_component.css',
     publishAs: 'cmp'
 )
 class BadgeComponent {

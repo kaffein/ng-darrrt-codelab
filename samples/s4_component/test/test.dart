@@ -4,9 +4,9 @@ import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
-import 'package:s4_component/src/badge_controller.dart';
-import 'package:s4_component/src/pirate_module.dart';
-import 'package:s4_component/src/badge/badge_component.dart';
+import 'package:s4_component/badge_controller.dart';
+import 'package:s4_component/pirate_module.dart';
+import 'package:s4_component/components/badge_component.dart';
 
 main() {
   setUp(setUpInjector);

@@ -4,8 +4,8 @@ import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
-import 'package:s5_model/src/badge_controller.dart';
-import 'package:s5_model/src/pirate_module.dart';
+import 'package:s5_model/badge_controller.dart';
+import 'package:s5_model/pirate_module.dart';
 
 class PirateName {
   String firstName, appellation;

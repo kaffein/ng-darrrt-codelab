@@ -5,7 +5,7 @@
 library s3_controller.main;
 
 import 'package:angular/angular.dart';
-import 'package:s3_controller/src/pirate_module.dart';
+import 'package:s3_controller/pirate_module.dart';
 
 void main() {
   ngBootstrap(module: new PirateModule());
