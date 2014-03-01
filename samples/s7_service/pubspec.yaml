@@ -4,5 +4,6 @@ dependencies:
   angular: 0.9.6
   browser: any
   js: any
+  mockable_filesystem: any
   shadow_dom: any
   unittest: any

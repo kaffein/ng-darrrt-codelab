@@ -6,14 +6,15 @@ import 'dart:math';
 
 @NgInjectableService()
 class NamesService {
-  static final Random rand = new Random();
+  static Random rand = new Random();
   final Http _http;
   List<String> names;
   List<String> appellations;
 
   NamesService(this._http);
 
-  Future _loadData() {
+
+  Future loadData() {
     if (names != null) return new Future.value(true);
     return _http.get('packages/s7_service/assets/piratenames.json')
       .then((HttpResponse response) {
@@ -26,11 +27,11 @@ class NamesService {
   }
 
   Future<String> randomName() {
-    return _loadData().then((_) => _oneRandom(names));
+    return loadData().then((_) => _oneRandom(names));
   }
 
   Future<String> randomAppellation() {
-    return _loadData().then((_) => _oneRandom(appellations));
+    return loadData().then((_) => _oneRandom(appellations));
   }
 
   String _oneRandom(List<String> list) => list[rand.nextInt(list.length)];
