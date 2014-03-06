@@ -15,7 +15,7 @@ main() {
   setUp(setUpInjector);
   tearDown(tearDownInjector);
 
-  group('pirate badge', () {
+  group('BadgeController', () {
     BadgeController ctrl;
 
     setUp(module((Module m) {
@@ -23,15 +23,17 @@ main() {
       inject((BadgeController _ctrl) => ctrl = _ctrl);
     }));
 
-    test('should load recipes', () {
+    test('initial state', () {
+      expect(ctrl.name, isEmpty);
       expect(ctrl.inputIsNotEmpty, isFalse);
-      expect(ctrl.label, 'Aye! Gimme a name!');
+      expect(ctrl.label, BadgeController.LABEL2);
+
     });
 
     test('should generate name', () {
-      expect(ctrl.name, isEmpty);
       ctrl.generateName();
       expect(ctrl.name, BadgeController.DEFAULT_NAME);
+      expect(ctrl.label, BadgeController.LABEL1);
     });
   });
 }
