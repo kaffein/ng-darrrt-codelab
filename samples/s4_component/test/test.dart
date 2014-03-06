@@ -4,23 +4,27 @@
 
 library s4_component.test;
 
+import 'dart:async';
+import 'dart:html' show HttpRequest;
+
 import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
+
 import 'package:s4_component/badge_controller.dart';
 import 'package:s4_component/pirate_module.dart';
 import 'package:s4_component/components/badge_component.dart';
 
-import 'dart:html' show HttpRequest, querySelector;
 
 main() {
+  const NAME = 'Misko';
+
   setUp(setUpInjector);
   tearDown(tearDownInjector);
 
-  group('pirate badge', () {
+  group('BadgeComponent', () {
     TestBed tb;
-    var name = "misko";
 
     setUp(module((Module m) {
       m.install(new PirateModule());
@@ -29,24 +33,25 @@ main() {
       inject((BadgeComponent _cmp) => tb.rootScope.cmp = _cmp);
     }));
 
-    solo_test('initial state', (){
+    test('initial state', (){
       expect(tb.rootScope.ctrl.name, isEmpty);
-      expect(tb.rootScope.cmp.name, isNull);
+      expect(tb.rootScope.cmp.name, isEmpty);
     });
 
-    test('DOM structure', () {
+    test('updates the DOM when the name is changed', () {
       var path = 'packages/s4_component/components/badge_component.html';
-      HttpRequest.getString(path).then((_template) {
-        new MockHttpBackend().expect('GET').respond(_template);
-        tb.compile(_template.trim());
+      new Future(expectAsync0((){
+        HttpRequest.getString(path).then((_template) {
+          new MockHttpBackend().expect('GET').respond(_template);
+          tb.compile(_template.trim());
 
-        var el = tb.rootElement.querySelector('span');
-        expect(el.innerHtml, isEmpty);
-
-        tb.rootScope.cmp.name = name;
-        tb.rootScope.$digest();
-        expect(el.innerHtml, name);
-      });
+          var el = tb.rootElement.querySelector('#badge-name');
+          expect(el.innerHtml, isEmpty);
+          tb.rootScope.cmp.name = NAME;
+          tb.rootScope.$digest();
+          expect(el.innerHtml, NAME);
+        });
+      }));
     });
   });
 }
