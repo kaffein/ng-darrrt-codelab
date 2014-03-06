@@ -37,19 +37,19 @@ main() {
       inject((BadgeController _ctrl) => ctrl = _ctrl);
     }));
 
-    test('initial state', inject((BadgeController ctrl) {
+    test('initial state', () {
       expect(BadgeController.names.length, greaterThan(0));
       expect(ctrl.inputIsNotEmpty, isFalse);
       expect(ctrl.label, BadgeController.LABEL2);
-    }));
+    });
 
-    test('generateName() should generate name', inject((BadgeController ctrl) {
+    test('generateName() should generate name', () {
       expect(ctrl.name, isEmpty);
       ctrl.generateName();
       expect(BadgeController.names.contains(ctrl.name), isTrue);
-    }));
+    });
 
-    test('names setter should generate name', inject((BadgeController ctrl) {
+    test('names setter should generate name', () {
       expect(ctrl.name, isEmpty);
       expect(ctrl.pn.firstName, isEmpty);
       expect(ctrl.pn.appellation, isEmpty);
@@ -57,6 +57,6 @@ main() {
       expect(ctrl.pn.firstName, NAME);
       expect(BadgeController.appellations.contains(ctrl.pn.appellation),
           isTrue);
-    }));
+    });
   });
 }
