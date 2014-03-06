@@ -16,12 +16,12 @@ import 'package:s5_model/model.dart';
     selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
-  static const ARRR = "Arrr! Write yer name!";
-  static const AYE = "Aye! Gimme a name!";
+  static const LABEL1 = 'Arrr! Write yer name!';
+  static const LABEL2 = 'Aye! Gimme a name!';
 
   static const List names = const [
     'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
-    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
+    'Bill', 'Ragnar', 'Ed', 'John', 'Jane'];
 
   static const List appellations = const [
     'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
@@ -44,8 +44,7 @@ class BadgeController {
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
-  String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
-    "Aye! Gimme a name!";
+  String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
   generateName() {
     name = _oneRandom(names);
