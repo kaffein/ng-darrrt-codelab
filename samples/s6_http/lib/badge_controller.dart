@@ -6,6 +6,7 @@ library s6_http.badge_controller;
 
 import 'dart:async' show Future;
 import 'dart:math' show Random;
+
 import 'package:angular/angular.dart';
 
 import 'package:s6_http/model.dart' show PirateName;
@@ -17,6 +18,9 @@ import 'dart:mirrors';
     selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
+  static const LABEL1 = 'Arrr! Write yer name!';
+  static const LABEL2 = 'Aye! Gimme a name!';
+
   static List<String> names = [];
   static List<String> appellations = [];
 
@@ -37,10 +41,11 @@ class BadgeController {
   }
 
   Future _loadData() {
-    return _http.get('packages/s6_http/assets/piratenames.json').then((HttpResponse response) {
-      names = response.data['names'];
-      appellations = response.data['appellations'];
-    });
+    return _http.get('packages/s6_http/assets/piratenames.json')
+        .then((response) {
+          names = response.data['names'];
+          appellations = response.data['appellations'];
+        });
   }
 
   String _name = '';
@@ -55,13 +60,13 @@ class BadgeController {
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
-  String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
-    "Aye! Gimme a name!";
+  String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
   generateName() {
     var randomName = _oneRandom(names);
     name = randomName;
   }
 
-  String _oneRandom(List<String> list) => list[new Random().nextInt(list.length)];
+  String _oneRandom(List<String> list) => list[new Random().nextInt(
+      list.length)];
 }

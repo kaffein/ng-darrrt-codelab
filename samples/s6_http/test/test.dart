@@ -13,6 +13,9 @@ import 'package:s6_http/pirate_module.dart';
 import 'package:s6_http/badge_controller.dart';
 
 main() {
+  const NAME = "Misko";
+  const APPELLATION = "Magnificent";
+
   setUp(() {
    setUpInjector();
    module((Module m) => m.install(new PirateModule()));
@@ -23,16 +26,13 @@ main() {
     Injector injector;
     MockHttpBackend backend;
     BadgeController badgeController;
-    var name = "Misko";
-    var appellation = "Magnificent";
 
     setUp((){
       inject((Injector _injector, MockHttpBackend _backend) {
-
         backend = _backend;
         injector = _injector;
-        backend.expectGET('piratenames.json').respond('''{"names": [$name],
-        "appellations": [$appellation]}''');
+        backend.expectGET('packages/s6_http/assets/piratenames.json')
+            .respond('''{"names": ["$NAME"], "appellations": ["$APPELLATION"]}''');
       });
     });
 
@@ -48,15 +48,15 @@ main() {
       backend.flush();
       microLeap();
 
-      expect(BadgeController.names, [name]);
-      expect(BadgeController.appellations, [appellation]);
+      expect(BadgeController.names, [NAME]);
+      expect(BadgeController.appellations, [APPELLATION]);
       expect(badgeController.dataLoaded, isTrue);
     }));
 
     test('should set the pirate name', async(() {
       badgeController = injector.get(BadgeController);
-      badgeController.name = name;
-      expect(badgeController.pirateName, "$name the $appellation");
+      badgeController.name = NAME;
+      expect(badgeController.pirateName, "$NAME the $APPELLATION");
     }));
   });
 }
