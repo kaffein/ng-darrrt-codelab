@@ -16,7 +16,6 @@ import 'package:s4_component/badge_controller.dart';
 import 'package:s4_component/pirate_module.dart';
 import 'package:s4_component/components/badge_component.dart';
 
-
 main() {
   const NAME = 'Misko';
 
