@@ -58,7 +58,7 @@ The creators of the AngularDart code lab include:
 
 _Thanks to the [+DartlangFr](http://gplus.to/dartlangfr) team._  
 
-## [Next >](docs/step-0.md)
+## [Next >](docs/step-0.md#step-0-set-up)
 
   [1]: https://www.dartlang.org/
   [2]: https://www.dartlang.org/docs/dart-up-and-running/contents/ch02.html
