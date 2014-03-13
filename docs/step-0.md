@@ -35,23 +35,6 @@ which creates a directory called `ng-darrrt-codelab-master`.
 Until the revamp branch becomes the master branch,
 the directory is `ng-darrrt-codelab-revamp`, not `ng-darrrt-codelab-master`.}
 
-### Open the sample.
 
-In Dart Editor, use **File > Open Existing Folder...**
-to open the directory `ng-darrrt-codelab-master/samples/s1-basics`.
-
-Next, open the `web` directory by
-clicking the little arrow ► to the left of its name.
-
-![The codelab's directory structure: Each step has its own pubspec.* files, defining the app's dependencies; a packages directory appears; the final code for the step is under web/.](img/s0-open-sample.png).
-
-[PENDING: delete `img/fileview.png`]
-
-
-**Note:**
-If you see red X’s
-at the left of the filenames or if the `packages` directory doesn't appear,
-the packages are not properly installed.
-Right-click `pubspec.yaml` and select **Pub Get**.
 
 ## [Home](../README.md#code-lab-angulardart) | [Next >](step-1.md#step-1-run-the-app-and-view-its-code)
