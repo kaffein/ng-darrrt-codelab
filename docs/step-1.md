@@ -8,13 +8,32 @@ you run the app.
 _**Keywords**: main, pub, Dartium, Angular_
 
 
+### Use Dart Editor to open the app's directory
+
+In Dart Editor, use **File > Open Existing Folder...**
+to open the directory `ng-darrrt-codelab-master/samples/s1-basics`.
+
+Next, open the `web` directory by
+clicking the little arrow ► to the left of its name.
+
+![Each step has its own pubspec.* files, defining the app's dependencies; a packages directory appears; the final code for the step is under web/.](img/s1-open-sample.png).
+
+[PENDING: delete `img/fileview.png`]
+
+
+**Note:**
+If you see red X’s
+at the left of the filenames or if the `packages` directory doesn't appear,
+the packages are not properly installed.
+Right-click `pubspec.yaml` and select **Pub Get**.
+
 ### Open the app's source files.
 
 The initial app uses the following source files:
 * `pubspec.yaml`: The app's description and dependencies, used by the Dart package manager
-* `piratebadge.css`: The app's appearance (we'll skip this for now)
-* `web/1-blankbadge/piratebadge.html`: The app's template
-* `web/1-blankbadge/piratebadge.dart`: Custom app logic
+* `web/index.html`: The app's template
+* `web/main.dart`: Custom app logic
+* `web/piratebadge.css`: The app's appearance (we'll skip this for now)
 
 In Dart Editor, open `pubspec.yaml` (in the top directory) by
 double-clicking its filename.
@@ -22,11 +41,12 @@ To see its raw source code,
 click the **Source** tab at the bottom of the edit view.
 
 Still in Dart Editor,
-expand the `1-blankbadge` directory (under `web`).
-Under `web/1-blankbadge`,
-double-click `piratebadge.html` and `piratebadge.dart`.
+under the `web` directory
+double-click `index.html` and `main.dart`.
 
-![Open 3 source files](img/openfiles.png).
+![Open 3 source files](img/s1-open-files.png).
+
+{PENDING: delete `img/openfiles.png`}
 
 ### Review the code.
 
