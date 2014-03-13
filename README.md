@@ -12,6 +12,12 @@ that generates a pirate badge.
 (If you've already completed the [first Dart code lab](https://www.dartlang.org/codelabs/darrrt/),
 this app should be familiar, but the code is completely different.)
 
+**Important:**
+AngularDart is in beta, and its API is subject to change.
+Before AngularDart's 1.0 release,
+we expect to fix
+[these bugs](https://github.com/angular/angular.dart/issues?milestone=12)
+(and more).
 <!-- put screenshot here? -->
 
 
