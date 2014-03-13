@@ -25,23 +25,16 @@ Go to the `dart` directory and double-click **DartEditor**.
 ###  Get the sample code.
 
 [Download the sample code.](https://github.com/angular/ng-darrrt-codelab/archive/master.zip)
+{**NO, WAIT, DON'T! [PENDING]:**
+Until the revamp branch becomes the master branch, download this instead:
+https://github.com/angular/ng-darrrt-codelab/archive/revamp.zip}
 
 Unzip the ZIP file,
 which creates a directory called `ng-darrrt-codelab-master`.
+{**Note [PENDING]:**
+Until the revamp branch becomes the master branch,
+the directory is `ng-darrrt-codelab-revamp`, not `ng-darrrt-codelab-master`.}
 
-### Open the sample.
 
-In Dart Editor, use **File > Open Existing Folder...**
-to open the `ng-darrrt-codelab-master` directory.
-Then open the `web` directory by
-clicking the little arrow ► to the left of its name.
 
-![The codelab's directory structure: code for each completed step is under web/; a packages directory appears; pubspec.* define the app's dependencies.](img/fileview.png).
-
-**Note:**
-If you see red X’s
-at the left of the filenames or if the `packages` directory doesn't appear,
-the packages are not properly installed.
-Right-click `pubspec.yaml` and select **Pub Get**.
-
-## [Home](../README.md) | [Next >](step-1.md)
+## [Home](../README.md#code-lab-angulardart) | [Next >](step-1.md#step-1-run-the-app-and-view-its-code)
