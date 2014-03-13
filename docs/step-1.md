@@ -10,10 +10,10 @@ _**Keywords**: main, pub, Dartium, Angular_
 
 ### Use Dart Editor to open the app's directory
 
-In Dart Editor, use **File > Open Existing Folder...**
+&rarr;  In Dart Editor, use **File > Open Existing Folder...**
 to open the directory `ng-darrrt-codelab-master/samples/s1-basics`.
 
-Next, open the `web` directory by
+&rarr;  Open the `web` directory by
 clicking the little arrow ► to the left of its name.
 
 ![Each step has its own pubspec.* files, defining the app's dependencies; a packages directory appears; the final code for the step is under web/.](img/s1-open-sample.png).
@@ -35,12 +35,12 @@ The initial app uses the following source files:
 * `web/main.dart`: Custom app logic
 * `web/piratebadge.css`: The app's appearance (we'll skip this for now)
 
-In Dart Editor, open `pubspec.yaml` (in the top directory) by
+&rarr;  In Dart Editor, open `pubspec.yaml` (in the top directory) by
 double-clicking its filename.
 To see its raw source code,
 click the **Source** tab at the bottom of the edit view.
 
-Still in Dart Editor,
+&rarr;  Still in Dart Editor,
 under the `web` directory
 double-click `index.html` and `main.dart`.
 
@@ -62,11 +62,14 @@ the information they need to download the
 [angular package](https://pub.dartlang.org/packages/angular).
 
 ``` yaml
-name: ng_darrrt_codelab
+name: s1_basics
 description: A one hour exercise, based on the Darrrt project, to learn AngularDart.
 dependencies:
-    angular: 0.9.6
-    shadow_dom: any
+  angular: 0.9.8
+  browser: any
+  js: any
+  shadow_dom: any
+  unittest: any
 ```
 
 Key information:
@@ -82,7 +85,7 @@ Key information:
   [pub documentation](https://www.dartlang.org/tools/pub/).
 
 
-#### piratebadge.html
+#### index.html
 
 The first version of this HTML file contains no Angular code.
 However, it does set you up to add Angular code in the next step.
@@ -92,11 +95,11 @@ However, it does set you up to add Angular code in the next step.
   <head>
     <meta charset="utf-8">
     <title>Pirate badge</title>
-    <link rel="stylesheet" href="../piratebadge.css">
+    <link rel="stylesheet" href="piratebadge.css">
   </head>
   <body>
     <h1>Pirate badge</h1>
-
+    
     <div class="widgets">
       TO DO: Put the UI widgets here.
     </div>
@@ -108,9 +111,9 @@ However, it does set you up to add Angular code in the next step.
         <span id="badgeName"> </span>
       </div>
     </div>
-
+    
     <script src="packages/shadow_dom/shadow_dom.min.js"></script>
-    <script type="application/dart" src="piratebadge.dart"></script>
+    <script type="application/dart" src="main.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>
@@ -118,17 +121,19 @@ However, it does set you up to add Angular code in the next step.
 Key information:
 - The first `<script>` tag emulates Shadow DOM on browsers that don't support it natively.
 - The second `<script>` tag identifies the main file that implements the app.
-  Here, it’s the `piratebadge.dart` file.
+  Here, it’s the `main.dart` file.
 - The `packages/browser/dart.js` script checks for native Dart support and
   either bootstraps the Dart VM or loads compiled JavaScript instead.
 
-#### piratebadge.dart
+#### main.dart
 
 This version of the app does nothing,
 and has almost no Dart code.
 In the next step, you'll add some code.
 
 ```Dart
+library s1_basics.main;
+
 void main() {
   // Your app starts here.
 }
@@ -136,20 +141,24 @@ void main() {
 
 Key information:
 * This file contains the entry point for the app—the `main()` function.
-  The `<script>` tags in the `piratebadge.html` file start the application
+  The `<script>` tags in the `index.html` file start the application
   by running this function.
 * The `main()` function is a top-level function.
 * A top-level variable or function is one that is declared outside
   a class definition.
+* The `library` line isn't necessary now,
+  but it will come in handy later when we add more Dart files to this app.
 
 ### Run the app.
 
-To run the app in Dart Editor, right-click `piratebadge.html` and select **Run in Dartium**.
+&rarr; Right-click `index.html` and select **Run in Dartium**.
 
-![Click the run button](img/clickrun.png).
+![Click the run button](img/s1-run-in-dartium.png).
 
-Dart Editor launches _Dartium_, a special build of Chromium that has the Dart Virtual Machine built in, and loads the `piratebadge.html` file.
-The `piratebadge.html` file loads the app and calls the `main()` function.
+{PENDING: delete `img/clickrun.png`]
+
+Dart Editor launches _Dartium_, a special build of Chromium that has the Dart Virtual Machine built in, and loads the `index.html` file.
+The `index.html` file loads the app and calls the `main()` function.
 You should see a TO DO comment on the left and a red and white name badge on the right.
 
 ## [Home](../README.md) | [< Previous](step-0.md) | [Next >](step-2.md)
