@@ -54,4 +54,4 @@ at the left of the filenames or if the `packages` directory doesn't appear,
 the packages are not properly installed.
 Right-click `pubspec.yaml` and select **Pub Get**.
 
-## [Home](../README.md) | [Next >](step-1.md#step-1-run-the-app-and-view-its-code)
+## [Home](../README.md#code-lab-angulardart) | [Next >](step-1.md#step-1-run-the-app-and-view-its-code)
