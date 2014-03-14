@@ -106,7 +106,7 @@ Key information:
 
 Notice how the view (the badge) updates in real time whenever
 the model (the contents of the text field) changes.
-This is called _Two Way Data Binding_.
+This is called _two-way data binding_.
 Angular listens for changes to the model and updates the view to reflect those changes.
 
 ### Learn more about
