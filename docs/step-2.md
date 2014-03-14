@@ -6,12 +6,13 @@ that updates the text of the badge.
 _**Keywords**: binding, scope, model_
 
 -----------------------------
-> **Note**: Throughout this code lab, continue to edit the files in `web/1-blankbadge`.
-You can use the files in the other `web` subdirectories to compare to your code or to recover if you get off track.
+> **Note**: Throughout this code lab, continue to edit the files in `s1_basics`.
+You can use the files in the other `samples` subdirectories to compare to your code
+or to recover if you get off track.
 
 -----------------------------
 
-### Edit piratebadge.dart.
+### Edit main.dart.
 
 **&rarr; Add the following imports at the top of the file (below the copyright,
 but above main()).** 
@@ -108,8 +109,8 @@ Notice how the view is updated in real time whenever the model changes. This is 
  - [How Angular does MVC](https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app#how-angular-does-mvc)
 
 ### Problems?
-Check your code against the files in [2-inputnamebadge](../web/2-inputnamebadge).
-- [piratebadge.html](../web/2-inputnamebadge/piratebadge.html)
-- [piratebadge.dart](../web/2-inputnamebadge/piratebadge.dart)
+Check your code against the files in [s2_binding](../s2_binding).
+- [index.html](../s2_binding/index.html)
+- [main.dart](../s2_binding/main.dart)
 
 ## [Home](../README.md) | [< Previous](step-1.md) | [Next >](step-3.md)
