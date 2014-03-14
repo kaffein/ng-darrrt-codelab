@@ -153,8 +153,8 @@ or you could use multiple copies of the badge.
 
 
 ### Problems?
-Check your code against the files in [4-extractcomponent](../web/4-extractcomponent).
-- [piratebadge.html](../web/4-extractcomponent/piratebadge.html)
-- [piratebadge.dart](../web/4-extractcomponent/piratebadge.dart)
+Check your code against the files in [s4_component](../samples/s4_component).
+- [index.html](../samples/s4_component/web/index.html)
+- [main.dart](../samples/s4_component/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-3.md) | [Next >](step-5.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-3.md#step-3-add-a-button-and-controller) | [Next >](step-5.md#step-5-use-a-class-as-a-model)
