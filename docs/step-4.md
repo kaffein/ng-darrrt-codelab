@@ -7,14 +7,14 @@ _**Keywords**: component, Shadow DOM_
 
 ### Create a directory for the component.
 
-Name the directory `badge`,
-and put it under `web/1-blankbadge` (or wherever you've been working).
+&rarr; Under the `lib` directory,
+create a directory named `components`.
 
-The `badge` directory will contain all of the files for the new component.
+The `components` directory will contain all of the files for the new component.
 
 ### Create an HTML file for the component.
 
-Under the `badge` directory,
+&rarr; Under the `components` directory,
 create a file named `badge_component.html`
 with the following contents:
 
@@ -24,14 +24,14 @@ with the following contents:
     Arrr! Me name is
   </div>
   <div class="name">
-    <span id="badgeName">{{cmp.name}}</span>
+    <span id="badge-name">{{cmp.name}}</span>
   </div>
 </div>
 ```
 
 ### Create a CSS file for the component.
 
-Under the `badge` directory,
+&rarr; Under the `components` directory,
 create a file named `badge_component.css`
 with the following contents:
 
@@ -65,24 +65,24 @@ with the following contents:
 
 ### Create a Dart file for the component
 
-Under the `badge` directory,
+&rarr; Under the `components` directory,
 create a file named `badge_component.dart`
 with the following contents:
 
 ```Dart
-library badge;
+library s1_basics.components.badge_component;
 
 import 'package:angular/angular.dart';
 
 @NgComponent(
     selector: 'badge',
-    templateUrl: 'badge/badge_component.html',
-    cssUrl: 'badge/badge_component.css',
+    templateUrl: 'packages/s1_basics/components/badge_component.html',
+    cssUrl: 'packages/s1_basics/components/badge_component.css',
     publishAs: 'cmp'
 )
 class BadgeComponent {
   @NgAttr('name')
-  String name;
+  String name = '';
 }
 ```
 
@@ -100,30 +100,41 @@ Key information:
 
 ### Use the <badge> element in the app.
 
-<b>&rarr; In `piratebadge.html` replace the HTML code of badge with the new `<badge>`.</b>
+&rarr; In `index.html` replace the "badge" div with a `<badge>` element.
 
-```HTML
-<badge name="{{ctrl.name}}" style='float: left; margin-left: 20px;'></badge>
-```
+<pre>
+...
+&lt;div class="widgets">
+  ...
+&lt;/div>
+
+<b>&lt;badge name="{{ctrl.name}}"
+    style="float: left; margin-left: 20px;">&lt;/badge></b>
+
+&lt;script src="packages/shadow_dom/shadow_dom.min.js"></script>
+...
+</pre>
 
 ### Register the new component.
 
-In `piratebadge.dart`:
+&rarr; Edit `lib/pirate_module.dart`.
+
  - Add an import for the component library:
 
   <pre>
   import 'package:angular/angular.dart';
-  <b>import 'badge/badge_component.dart';</b>
+  <b>import 's1_basics/components/badge_component.dart';</b>
   ...
   </pre>
 
  - Add the component type to the module:
 
   <pre>
-  void main() {
-    ngBootstrap(module: new Module()
-      ..type(BadgesController)
-      <b>..type(BadgeComponent))</b>;
+  class PirateModule extends Module {
+    PirateModule() {
+      type(BadgeController);
+      <b>type(BadgeComponent);</b>
+    }
   }
   </pre>
 
@@ -142,8 +153,8 @@ or you could use multiple copies of the badge.
 
 
 ### Problems?
-Check your code against the files in [4-extractcomponent](../web/4-extractcomponent).
-- [piratebadge.html](../web/4-extractcomponent/piratebadge.html)
-- [piratebadge.dart](../web/4-extractcomponent/piratebadge.dart)
+Check your code against the files in [s4_component](../samples/s4_component).
+- [index.html](../samples/s4_component/web/index.html)
+- [main.dart](../samples/s4_component/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-3.md) | [Next >](step-5.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-3.md#step-3-add-a-button-and-controller) | [Next >](step-5.md#step-5-use-a-class-as-a-model)
