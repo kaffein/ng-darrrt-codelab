@@ -14,14 +14,15 @@ or to recover if you get off track.
 
 ### Edit main.dart.
 
-**&rarr; Add the following imports at the top of the file (below the copyright,
-but above main()).** 
+&rarr; Add the following imports just above main()).
 
 <pre>
 <b>import 'package:angular/angular.dart';
 
 @MirrorsUsed(override: '*')
 import 'dart:mirrors';</b>
+
+void main() {
 ...
 </pre>
 
@@ -33,7 +34,7 @@ Key information:
 
 ---
 
-**&rarr; Add `ngBootstrap();` to the `main`() method:**
+&rarr; Add `ngBootstrap();` to the `main`() method:
 
 <pre>
 void main() {
@@ -49,7 +50,7 @@ Key information:
 
 ### Edit piratebadge.html.
 
-**&rarr; Add an `ng-app` attribute to the `<html>` element:**
+&rarr; Add an `ng-app` attribute to the `<html>` element:
 
 <pre>
 &lt;html <b>ng-app</b>>
@@ -65,7 +66,7 @@ Key information:
 
 ---
 
-**&rarr; Add a `<div>` containing an `<input>` element to the "widgets" `<div>`.**
+&rarr; Add a `<div>` containing an `<input>` element to the "widgets" `<div>`.
 
 <pre>
 ...
@@ -83,9 +84,7 @@ Key information:
 
 ---
 
-<!-- Note: <b> is necessary below because ** fails, perhaps due to {{? -->
-<b>&rarr; Insert `{{name}}` in the "badgeName" span, and add an `ng-cloak` directive to hide it. </b>
-
+&rarr; Insert `{{name}}` in the "badgeName" span, and add an `ng-cloak` directive to hide it.
 
 <pre>
 &lt;span id="badgeName" <b>ng-cloak</b>><b>{{name}}</b>&lt;/span>
@@ -101,9 +100,14 @@ Key information:
 
 ### Run the app.
 
-**&rarr; Modify the input content.**
+&rarr; Like before, right-click `web/index.html`, and choose **Run in Dartium**.
 
-Notice how the view is updated in real time whenever the model changes. This is called _Two Way Data Binding_. Angular listens for changes to the model and updates the view to reflect those changes.
+&rarr; Type into the text field that appears.
+
+Notice how the view (the badge) updates in real time whenever
+the model (the contents of the text field) changes.
+This is called _Two Way Data Binding_.
+Angular listens for changes to the model and updates the view to reflect those changes.
 
 ### Learn more about
  - [How Angular does MVC](https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app#how-angular-does-mvc)
@@ -113,4 +117,4 @@ Check your code against the files in [s2_binding](../s2_binding).
 - [index.html](../s2_binding/index.html)
 - [main.dart](../s2_binding/main.dart)
 
-## [Home](../README.md) | [< Previous](step-1.md) | [Next >](step-3.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-1.md#step-1-run-the-app-and-view-its-code) | [Next >](step-3.md#step-3-add-a-button-and-controller)
