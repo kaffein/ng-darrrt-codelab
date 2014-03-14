@@ -190,7 +190,7 @@ Key information:
   In our example, it invokes the generateName() method on the controller.
 * As `{{ctrl.label}}` shows, an Angular expression can refer to a getter.
 
-<em>{PENDING: Dart Editor wanred me about generateName, label, and inputIsNotEmpty not being
+<em>{PENDING: Dart Editor warned me about generateName, label, and inputIsNotEmpty not being
 defined in BadgeController. However, the app still ran fine.}</em>
 
 &rarr; Update data binding: replace `name` with `ctrl.name`.
@@ -206,9 +206,8 @@ defined in BadgeController. However, the app still ran fine.}</em>
 &rarr; Add a `ng-disabled` directive to the button tag.
 
 <pre>
-&lt;button ng-click="ctrl.generateName()" <b>ng-disabled="ctrl.inputIsNotEmpty"</b>>
-  {{ctrl.label}}
-&lt;/button>
+&lt;button ng-click="ctrl.generateName()"
+    <b>ng-disabled="ctrl.inputIsNotEmpty"</b>>{{ctrl.label}}&lt;/button>
 </pre>
 
 Key information:
