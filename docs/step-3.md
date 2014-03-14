@@ -224,4 +224,4 @@ Check your code against the files in [s3_controller](../samples/s3_controller).
 - [index.html](../samples/s3_controller/web/index.html)
 - [main.dart](../samples/s3_controller/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-2.md) | [Next >](step-4.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-2.md#step-2-add-an-input-field) | [Next >](step-4.md#step-4-create-a-custom-component)
