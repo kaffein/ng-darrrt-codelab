@@ -162,6 +162,14 @@ Key information:
 * Thanks to the `badge-controller` selector, a BadgeController now
   controls every element under `<body>`.
 
+&rarr; Move `ng-cloak` up to the `<body>` element.
+
+<pre>
+&lt;body badge-controller <b>ng-cloak</b>>
+...
+&lt;span id="badgeName">{{ctrl.name}}&lt;/span>
+</pre>
+
 &rarr; Add a `button` element under the input field.
 
 <pre>
