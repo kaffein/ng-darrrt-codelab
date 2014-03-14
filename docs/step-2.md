@@ -114,7 +114,7 @@ Angular listens for changes to the model and updates the view to reflect those c
 
 ### Problems?
 Check your code against the files in [s2_binding](../s2_binding).
-- [index.html](../s2_binding/index.html)
-- [main.dart](../s2_binding/main.dart)
+- [index.html](../samples/s2_binding/web/index.html)
+- [main.dart](../samples/s2_binding/web/main.dart)
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-1.md#step-1-run-the-app-and-view-its-code) | [Next >](step-3.md#step-3-add-a-button-and-controller)
