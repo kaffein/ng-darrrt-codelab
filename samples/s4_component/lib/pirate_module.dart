@@ -5,8 +5,8 @@
 library s4_component.pirate_module;
 
 import 'package:angular/angular.dart';
-import 'package:s4_component/components/badge_component.dart';
 import 'package:s4_component/badge_controller.dart';
+import 'package:s4_component/components/badge_component.dart';
 
 class PirateModule extends Module {
   PirateModule() {

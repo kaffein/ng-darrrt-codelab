@@ -5,15 +5,14 @@
 library s7_service.pirate_module;
 
 import 'package:angular/angular.dart';
-
-import 'package:s7_service/service/names_service.dart';
-import 'package:s7_service/components/badge_component.dart';
 import 'package:s7_service/badge_controller.dart';
+import 'package:s7_service/components/badge_component.dart';
+import 'package:s7_service/service/names_service.dart';
 
 class PirateModule extends Module {
   PirateModule() {
     type(BadgeController);
-    type(NamesService);
     type(BadgeComponent);
+    type(NamesService);
   }
 }
