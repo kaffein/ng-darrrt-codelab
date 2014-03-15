@@ -123,7 +123,8 @@ Key information:
 
   <pre>
   import 'package:angular/angular.dart';
-  <b>import 's1_basics/components/badge_component.dart';</b>
+  import 'package:s1_basics/badge_controller.dart';
+  <b>import 'package:s1_basics/components/badge_component.dart';</b>
   ...
   </pre>
 
