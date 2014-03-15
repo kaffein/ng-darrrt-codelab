@@ -6,9 +6,6 @@ library s4_component.badge_controller;
 
 import 'package:angular/angular.dart';
 
-@MirrorsUsed(override:'*')
-import 'dart:mirrors';
-
 @NgController(
     selector: '[badge-controller]',
     publishAs: 'ctrl')
@@ -18,11 +15,10 @@ class BadgeController {
   static const LABEL2 = 'Aye! Gimme a name!';
   String name = '';
 
-  bool get inputIsNotEmpty => !name.trim().isEmpty;
-
+  bool get inputIsNotEmpty => name.trim().isNotEmpty;
   String get label => inputIsNotEmpty ? LABEL1: LABEL2;
 
-  generateName() {
+  void generateName() {
     name = DEFAULT_NAME;
   }
 }
