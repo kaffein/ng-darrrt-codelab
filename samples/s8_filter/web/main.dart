@@ -5,8 +5,10 @@
 library s8_filter.main;
 
 import 'package:angular/angular.dart';
-
 import 'package:s8_filter/pirate_module.dart';
+
+@MirrorsUsed(override: '*')
+import 'dart:mirrors';
 
 void main() {
   ngBootstrap(module: new PirateModule());

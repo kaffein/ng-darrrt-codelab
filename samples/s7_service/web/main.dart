@@ -5,8 +5,10 @@
 library s7_service.main;
 
 import 'package:angular/angular.dart';
-
 import 'package:s7_service/pirate_module.dart';
+
+@MirrorsUsed(override: '*')
+import 'dart:mirrors';
 
 void main() {
   ngBootstrap(module: new PirateModule());
