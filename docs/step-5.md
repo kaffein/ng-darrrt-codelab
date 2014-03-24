@@ -15,7 +15,8 @@ library s1_basics.model;
 class PirateName {
   String firstName, appellation;
   PirateName([this.firstName = '', this.appellation = '']);
-}```
+}
+```
 
 You've just implemented the model for this app.
 {PENDING: say more? Maybe under "Key information"?
