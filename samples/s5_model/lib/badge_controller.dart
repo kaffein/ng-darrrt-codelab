@@ -43,14 +43,12 @@ class BadgeController {
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
-
   String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
-  generateName() {
+  void generateName() {
     name = _oneRandom(names);
   }
 
-  String _oneRandom(List<String> list) {
-    return list[new Random().nextInt(list.length)];
-  }
+  String _oneRandom(List<String> list) =>
+      list[new Random().nextInt(list.length)];
 }

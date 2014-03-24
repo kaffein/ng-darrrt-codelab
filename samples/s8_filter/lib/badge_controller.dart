@@ -6,11 +6,12 @@ library s8_filter.badge_controller;
 
 import 'package:angular/angular.dart';
 
-import 'package:s8_filter/service/names_service.dart';
-import 'package:s8_filter/model.dart' show PirateName;
-
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
+import 'dart:async' show Future;
+
+import 'package:s8_filter/service/names_service.dart';
+import 'package:s8_filter/model.dart' show PirateName;
 
 @NgController(
     selector: '[badge-controller]',
@@ -36,12 +37,12 @@ class BadgeController {
         ..appellation = appellation;
     });
   }
-  bool get inputIsNotEmpty => name.trim().isNotEmpty;
 
+  bool get inputIsNotEmpty => name.trim().isNotEmpty;
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
-  generateName() {
+  Future generateName() {
     return ns.randomAppellation()
         .then((_appellation) => pn.appellation = _appellation)
         .then((_) => ns.randomName())

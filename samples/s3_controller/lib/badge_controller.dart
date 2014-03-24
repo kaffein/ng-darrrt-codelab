@@ -18,7 +18,7 @@ class BadgeController {
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
   String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
-  generateName() {
+  void generateName() {
     name = DEFAULT_NAME;
   }
 }

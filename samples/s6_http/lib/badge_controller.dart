@@ -4,15 +4,14 @@
 
 library s6_http.badge_controller;
 
-import 'dart:async' show Future;
-import 'dart:math' show Random;
-
 import 'package:angular/angular.dart';
-
-import 'package:s6_http/model.dart' show PirateName;
 
 @MirrorsUsed(override:'*')
 import 'dart:mirrors';
+import 'dart:math' show Random;
+import 'dart:async' show Future;
+
+import 'package:s6_http/model.dart' show PirateName;
 
 @NgController(
     selector: '[badge-controller]',
@@ -59,14 +58,13 @@ class BadgeController {
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
-
   String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
-  generateName() {
+  void generateName() {
     var randomName = _oneRandom(names);
     name = randomName;
   }
 
-  String _oneRandom(List<String> list) => list[new Random().nextInt(
-      list.length)];
+  String _oneRandom(List<String> list) =>
+      list[new Random().nextInt(list.length)];
 }
