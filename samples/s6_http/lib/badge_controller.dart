@@ -6,8 +6,6 @@ library s6_http.badge_controller;
 
 import 'package:angular/angular.dart';
 
-@MirrorsUsed(override:'*')
-import 'dart:mirrors';
 import 'dart:math' show Random;
 import 'dart:async' show Future;
 

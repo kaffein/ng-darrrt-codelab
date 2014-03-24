@@ -6,8 +6,6 @@ library s5_model.badge_controller;
 
 import 'package:angular/angular.dart';
 
-@MirrorsUsed(override:'*')
-import 'dart:mirrors';
 import 'dart:math' show Random;
 
 import 'package:s5_model/model.dart';

@@ -6,8 +6,6 @@ library s8_filter.badge_controller;
 
 import 'package:angular/angular.dart';
 
-@MirrorsUsed(override:'*')
-import 'dart:mirrors';
 import 'dart:async' show Future;
 
 import 'package:s8_filter/service/names_service.dart';
