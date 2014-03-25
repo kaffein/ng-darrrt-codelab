@@ -36,15 +36,15 @@ import 'package:s1_basics/model.dart';
 ```
 
 The Editor will complain about unused imports. Don't worry about that, we'll
-be using `Random` and the model in this step.
+be using `Random` and the model later in this step.
 
 
 ### Update the controller
 
-&rarr; Add the following `const` lists inside `BadgesController`:
+&rarr; Add the following `const` lists inside `BadgeController`:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   static const List names = const [
     'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
@@ -65,17 +65,17 @@ appellations:
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String _oneRandom(List<String> list) =>
       list[new Random().nextInt(list.length)];
 }
 ```
 
-&rarr; Inside `BadgesController`, create a new model instance:
+&rarr; Inside `BadgeController`, create a new model instance:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   PirateName pn = new PirateName();
   // ...
@@ -86,10 +86,10 @@ class BadgesController {
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String get pirateName => pn.firstName.isEmpty ? '' :
-  '${pn.firstName} the ${pn.appellation}';
+      '${pn.firstName} the ${pn.appellation}';
   // ...
 }
 ```
@@ -98,10 +98,10 @@ This getter returns the complete name of the pirate. You will soon add code to
 pass the string returned by this getter as an argument to the component that we
 created in step 4.
 
-`BadgesController` contains a `name` field:
+`BadgeController` contains a `name` field:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String name = '';
   // ...
@@ -112,7 +112,7 @@ class BadgesController {
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String _name = '';
 
@@ -127,18 +127,21 @@ class BadgesController {
 }
 ```
 
-We've added a private `_name` field that we'll later bind into the UI, and
-we've defined a getter and a setter to get and set its value. The
-setter also sets the `firstName` and `appellation` fields of the
-`PirateBadge` object. Every time the value of `_name` changes, the change is
-reflected in `pn`, the `PirateName` object.
+Key information:
+* We've added a private `_name` field that we'll later bind into the UI.
+* We've defined a getter and a setter to get and set the value of `_name`.
+* The setter also sets the `firstName` and `appellation` fields of the
+`PirateBadge` object.
+* Every time the value of `_name` changes, the change is reflected in `pn`,
+  the public `PirateName` object.
 
 &rarr; Update `generateName()`.
 
 So far, this method has produced a static name. Now
 you'll add code to generate a name based on randomly picked values from the
-`names` and `appellations` lists. _Replace_ the version of `generateName()`
-with the following code:
+`names` and `appellations` lists.
+
+&rarr; _Replace_ the old version of `generateName()` with the following code:
 
 ```Dart
 void generateName() {
@@ -150,7 +153,7 @@ void generateName() {
 
 Now it's time to use the `pirateName` controller getter.
 
-&rarr; In `piratebadge.html`, update the data binding in the `badge` tag to use
+&rarr; In `web/index.html`, update the data binding in the `badge` tag to use
 that getter:
 
 ```HTML
