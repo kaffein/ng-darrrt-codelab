@@ -2,38 +2,50 @@
 
 In this step, you define and use a model.
 
-_**Keywords**: class_
+_**Keywords**: class, model_
 
-### Update imports
+### Create a model (PirateName)
 
-First, add the following import to `piratebadge.dart`:
-
-```Dart
-import 'dart:math' show Random;
-```
-
-The Editor will complain about an unused import. Don't worry about that, we'll
-be using `Random` later in this step.
-
-### Create a PirateName class
-
-Copy and paste the following code in `piratebadge.dart`:
+&rarr; Create a file named `lib/model.dart`,
+and add the following code to it:
 
 ```Dart
+library s1_basics.model;
+
 class PirateName {
   String firstName, appellation;
   PirateName([this.firstName = '', this.appellation = '']);
 }
 ```
 
-This is the model for this app.
+You've just implemented the model for this app.
+{PENDING: say more? Maybe under "Key information"?
+It's kind of interesting that it has two optional parameters that set the two fields.
+Talk about where this model is used?}
+
+{PENDING: talk about library name?}
+
 
 ### Update the controller
 
-Add the following `const` lists inside `BadgesController`:
+Now you'll edit `lib/badge_controller.dart`,
+which is by far the most-changed file in this step.
+
+&rarr; Add the following imports to `lib/badge_controller.dart`:
 
 ```Dart
-class BadgesController {
+import 'dart:math' show Random;
+import 'package:s1_basics/model.dart';
+```
+
+The Editor will complain about unused imports. Don't worry about that, we'll
+be using `Random` and the model later in this step.
+
+
+&rarr; Add the following `const` lists inside `BadgeController`:
+
+```Dart
+class BadgeController {
   // ...
   static const List names = const [
     'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
@@ -46,41 +58,36 @@ class BadgesController {
 }
 ```
 
-You'll write code later in this step to generate pirate names by obtaining
-random values from each list.
-
-Add the following utility function that helps pick random names and
+&rarr; Add the following utility function that helps pick random names and
 appellations:
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
-  String _oneRandom(List<String> list) {
-    return list[new Random().nextInt(list.length)];
-  }
-  // ...
+  String _oneRandom(List<String> list) =>
+      list[new Random().nextInt(list.length)];
 }
 ```
 
-Inside `BadgesController`, create a new model instance:
+&rarr; Inside `BadgeController`, create a new model instance:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   PirateName pn = new PirateName();
   // ...
 }
 ```
 
-Now add this `pirateName` getter to the controller.
+&rarr; Now add a `pirateName` getter to the controller:
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String get pirateName => pn.firstName.isEmpty ? '' :
-  '${pn.firstName} the ${pn.appellation}';
+      '${pn.firstName} the ${pn.appellation}';
   // ...
 }
 ```
@@ -89,21 +96,21 @@ This getter returns the complete name of the pirate. You will soon add code to
 pass the string returned by this getter as an argument to the component that we
 created in step 4.
 
-`BadgesController` contains a `name` field:
+`BadgeController` contains a `name` field:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String name = '';
   // ...
 }
 ```
 
-_Replace_ that line with the following code:
+&rarr; _Replace_ that line with the following code:
 
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   String _name = '';
 
@@ -118,28 +125,31 @@ class BadgesController {
 }
 ```
 
-We've added a private `_name` field that we'll later bind into the UI, and
-we've defined a getter and a setter to get and set its value. The
-setter also sets the `firstName` and `appellation` fields of the
-`PirateBadge` object. Every time the value of `_name` changes, the change is
-reflected in `pn`, the `PirateName` object.
+Key information:
+* We've added a private `_name` field that we'll later bind into the UI.
+* We've defined a getter and a setter to get and set the value of `_name`.
+* The setter also sets the `firstName` and `appellation` fields of the
+`PirateBadge` object.
+* Every time the value of `_name` changes, the change is reflected in `pn`,
+  the public `PirateName` object.
 
-Update `generateName()`. So far, this method has produced a static name. Now
+So far, this method has produced a static name. Now
 you'll add code to generate a name based on randomly picked values from the
-`names` and `appellations` lists. _Replace_ the version of `generateName()`
-with the following code:
+`names` and `appellations` lists.
+
+&rarr; _Replace_ the old version of `generateName()` with the following code:
 
 ```Dart
-generateName() {
-  var randomName = _oneRandom(names);
-  name = randomName;
+void generateName() {
+  name = _oneRandom(names);
 }
 ```
 
 ### Update data bindings
 
-Remember the `pirateName` controller getter you defined a short while ago?
-Now, in `piratebadge.html`, update the data binding in the `badge` tag to use
+Now it's time to use the `pirateName` controller getter.
+
+&rarr; In `web/index.html`, update the data binding in the `badge` tag to use
 that getter:
 
 ```HTML
@@ -147,13 +157,15 @@ that getter:
     style='float: left; margin-left: 20px;'></badge>
 ```
 
-Now run your code. You should be able to enter text into the input box and see
+### Run the app in Dartium
+
+You should be able to enter text into the input box and see
 a pirate name in the pirate badge. You should also be able to generate a
 random pirate name by clicking on the button.
 
 ### Problems?
-Check your code against the files in [5-classbadge](../web/5-classbadge).
-- [piratebadge.html](../web/5-classbadge/piratebadge.html)
-- [piratebadge.dart](../web/5-classbadge/piratebadge.dart)
+Check your code against the files in [s5_model](../samples/s5_model).
+- [index.html](../samples/s5_model/web/index.html)
+- [main.dart](../samples/s5_model/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-4.md) | [Next >](step-6.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-4.md#step-4-create-a-custom-component) | [Next >](step-6.md#step-6-read-from-a-json-encoded-file)
