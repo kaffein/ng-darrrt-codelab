@@ -26,7 +26,10 @@ Talk about where this model is used?}
 {PENDING: talk about library name?}
 
 
-### Update imports
+### Update the controller
+
+Now you'll edit `lib/badge_controller.dart`,
+which is by far the most-changed file in this step.
 
 &rarr; Add the following imports to `lib/badge_controller.dart`:
 
@@ -38,8 +41,6 @@ import 'package:s1_basics/model.dart';
 The Editor will complain about unused imports. Don't worry about that, we'll
 be using `Random` and the model later in this step.
 
-
-### Update the controller
 
 &rarr; Add the following `const` lists inside `BadgeController`:
 
@@ -56,9 +57,6 @@ class BadgeController {
   // ...
 }
 ```
-
-You'll write code later in this step to generate pirate names by obtaining
-random values from each list.
 
 &rarr; Add the following utility function that helps pick random names and
 appellations:
@@ -135,8 +133,6 @@ Key information:
 * Every time the value of `_name` changes, the change is reflected in `pn`,
   the public `PirateName` object.
 
-&rarr; Update `generateName()`.
-
 So far, this method has produced a static name. Now
 you'll add code to generate a name based on randomly picked values from the
 `names` and `appellations` lists.
@@ -161,7 +157,7 @@ that getter:
     style='float: left; margin-left: 20px;'></badge>
 ```
 
-&rarr; Run your code.
+### Run the app in Dartium
 
 You should be able to enter text into the input box and see
 a pirate name in the pirate badge. You should also be able to generate a
@@ -172,4 +168,4 @@ Check your code against the files in [s5_model](../samples/s5_model).
 - [index.html](../samples/s5_model/web/index.html)
 - [main.dart](../samples/s5_model/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-4.md) | [Next >](step-6.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-4.md#step-4-create-a-custom-component) | [Next >](step-6.md#step-6-read-from-a-json-encoded-file)
