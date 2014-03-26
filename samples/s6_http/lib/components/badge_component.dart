@@ -14,5 +14,5 @@ import 'package:angular/angular.dart';
 )
 class BadgeComponent {
   @NgAttr('name')
-  String name;
+  String name = '';
 }
