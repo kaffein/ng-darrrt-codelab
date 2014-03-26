@@ -52,15 +52,14 @@ class BadgeController {
   set name(newName) {
     _name = newName;
     pn..firstName = name
-      ..appellation = appellations[new Random().nextInt(appellations.length)];
+      ..appellation = _oneRandom(appellations);
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
   String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
   void generateName() {
-    var randomName = _oneRandom(names);
-    name = randomName;
+    name = _oneRandom(names);
   }
 
   String _oneRandom(List<String> list) =>
