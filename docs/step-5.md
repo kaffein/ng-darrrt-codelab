@@ -161,7 +161,7 @@ Now it's time to use the `pirateName` controller getter.
 that getter:
 
 ```HTML
-<badge name="{{ctrl.pirateName}}"
+<badge name={{ctrl.pirateName}}
     style='float: left; margin-left: 20px;'></badge>
 ```
 

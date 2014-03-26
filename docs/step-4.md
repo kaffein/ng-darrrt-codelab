@@ -108,7 +108,7 @@ Key information:
   ...
 &lt;/div>
 
-<b>&lt;badge name="{{ctrl.name}}"
+<b>&lt;badge name={{ctrl.name}}
     style="float: left; margin-left: 20px;">&lt;/badge></b>
 
 &lt;script src="packages/shadow_dom/shadow_dom.min.js"></script>
