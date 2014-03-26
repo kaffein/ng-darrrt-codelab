@@ -1,9 +1,10 @@
 ## Step 6: Read from a JSON-encoded file
 
-In this step, you change the `PirateName` and `BadgeController` classes to
-get the list of names and appellations from a JSON file.
+In this step, you change the app so that it
+gets the list of names and appellations from a JSON file.
+You also disable the app's controls until the JSON data is loaded.
 
-_**Keywords**: HTTP request, dependency injection, ng-disabled, NgBooleanAttributeDirective_
+_**Keywords**: HTTP request, ng-disabled, NgBooleanAttributeDirective_
 
 ### Create a JSON file under lib/assets
 
@@ -70,14 +71,12 @@ class BadgeController {
 }
 ```
 
-In `BadgeController`, add a private final `Http _http` field, and add a constructor
-to initialize `_http`:
+In `BadgeController`, add a private final `Http _http` field:
 
 ```Dart
 class BadgeController {
   ...
   final Http _http;
-  BadgeController(this._http);
   ...
 }
 ```
@@ -124,8 +123,8 @@ class BadgeController {
 }
 ```
 
-&rarr; Put the following code in the `BadgeController` constructor:
-{PENDING: why bother to have the constructor up above?}
+&rarr; Add a `BadgeController` constructor that initializes the `_http` field
+and requests the JSON data:
 
 ```Dart
 class BadgeController {
@@ -156,9 +155,8 @@ Key information:
 ### Edit the HTML file
 
 &rarr; In `web/index.html`,
-change the input and the button so that they are disabled by default.
-
-The following code enables the input and button only when the JSON data is loaded:
+change the input and the button so that they are disabled until
+the JSON data is loaded:
 
 ```HTML
 <div class="widgets">
@@ -182,6 +180,8 @@ Key information:
 * The `ng-disabled` attribute is defined,
   along with other boolean attributes such as `ng-required`, in
   [NgBooleanAttributeDirective](https://docs.angulardart.org/#angular/angular-directive.NgBooleanAttributeDirective).
+  {PENDING: It seems a little weird to discuss ng-disabled now,
+  when we've already used it in a previous step. Move/split discussion?}
 
 ### Learn more about
  - [Introducing the Http service](https://github.com/angular/angular.dart.tutorial/wiki/Introducing-filters-and-services)
