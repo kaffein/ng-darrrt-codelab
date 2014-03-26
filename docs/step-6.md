@@ -1,11 +1,11 @@
 ## Step 6: Read from a JSON-encoded file
 
-In this step, you change the `PirateName` and the `BadgeController` classes to
+In this step, you change the `PirateName` and `BadgeController` classes to
 get the list of names and appellations from a JSON file.
 
-_**Keywords**: HTTP request, dependency injection_
+_**Keywords**: HTTP request, dependency injection, ng-disabled, NgBooleanAttributeDirective_
 
-### Create `lib/assets/piratenames.json`
+### Create a JSON file under lib/assets
 
 &rarr; Create a directory named `assets`
 under the `lib` directory.
@@ -153,10 +153,12 @@ Key information:
   You can think of it as the rough equivalent of a synchronous try-catch block.
 
 
-### Edit piratebadge.html
+### Edit the HTML file
 
-Change the input and the button so that they are disabled by default, and enable
-them only when the JSON data is loaded:
+&rarr; In `web/index.html`,
+change the input and the button so that they are disabled by default.
+
+The following code enables the input and button only when the JSON data is loaded:
 
 ```HTML
 <div class="widgets">
@@ -172,16 +174,21 @@ them only when the JSON data is loaded:
 </div>
 ```
 
-If the expression in `ng-disabled` is truthy, then special attribute
-"disabled" is set on the element. When `ctrl.dataLoaded` is false, the input
-and button elements are disabled.
+Key information:
+* If the expression in `ng-disabled` is true, then the `disabled` attribute
+  is set on the element.
+* When `ctrl.dataLoaded` is false, the input
+  and button elements are disabled.
+* The `ng-disabled` attribute is defined,
+  along with other boolean attributes such as `ng-required`, in
+  [NgBooleanAttributeDirective](https://docs.angulardart.org/#angular/angular-directive.NgBooleanAttributeDirective).
 
 ### Learn more about
  - [Introducing the Http service](https://github.com/angular/angular.dart.tutorial/wiki/Introducing-filters-and-services)
 
 ### Problems?
-Check your code against the files in [6-piratebadge_json](../web/6-piratebadge_json).
-- [piratebadge.html](../web/6-piratebadge_json/piratebadge.html)
-- [piratebadge.dart](../web/6-piratebadge_json/piratebadge.dart)
+Check your code against the files in [s6_http](../samples/s6_http).
+- [index.html](../samples/s6_http/web/index.html)
+- [main.dart](../samples/s6_http/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-5.md) | [Next >](step-7.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-5.md#step-5-use-a-class-as-a-model) | [Next >](step-7.md#step-7-use-a-service-to-get-data)
