@@ -145,6 +145,14 @@ void generateName() {
 }
 ```
 
+&rarr; Delete the `DEFAULT_NAME` constant.
+
+```Dart
+class BadgeController {
+  //static const DEFAULT_NAME = 'Anne Bonney'; // DELETE THIS LINE
+  ...
+```
+
 ### Update data bindings
 
 Now it's time to use the `pirateName` controller getter.
