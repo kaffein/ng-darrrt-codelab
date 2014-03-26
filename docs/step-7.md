@@ -3,16 +3,19 @@
 This step converts Step 6's example to use a service
 (NamesService) to load and provide names.
 
+Step 4 hard coded data in the controller.
+Step 5 added functionality to read the data from a JSON file.
+This step moves all aspects of fetching a pirate name out of the controller and into a service,
+creating a clean separation of logic in the app:
+
+* The model defines the shape of the data.
+* The service provides the actual data.
+* The controller is the glue that keeps everything together.
+
 _**Keywords**: service_
 
-### Create a service
 
-In Step 4, we hard coded data in our controller. In Step 5, we added
-functionality to read the data from a JSON file. In this step, we move all
-aspects of fetching a pirate name out of the controller and into a service.
-This creates a clean separation of logic in our app: the model defines the
-shape of our data, the service provides the actual data, and the controller is
-the glue that keeps everything together.
+### Create a service
 
 In the location that you created the `badge/` directory in Step 4, create a
 new directory and call it `service`. In this directory, create a new file,
