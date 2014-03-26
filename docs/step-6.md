@@ -5,10 +5,14 @@ get the list of names and appellations from a JSON file.
 
 _**Keywords**: HTTP request, dependency injection_
 
-### Create piratenames.json
+### Create `lib/assets/piratenames.json`
 
-In the same directory as `piratebadge.dart`, create a JSON-encoded file named
-`piratenames.json` with the following content:
+&rarr; Create a directory named `assets`
+under the `lib` directory.
+
+&rarr; Under `lib/assets`,
+create a JSON-encoded file named `piratenames.json`
+with the following content:
 
 ```JSON
 { "names": [ "Anne", "Bette", "Cate", "Dawn",
@@ -41,9 +45,11 @@ In the same directory as `piratebadge.dart`, create a JSON-encoded file named
         "Yellow", "Zesty"]}
 ```
 
-### Edit piratebadge.dart
+### Edit the controller
 
-Add this import to the list of imports in `piratebadge.dart`.
+The following steps involve editing `lib/badge_controller.dart`.
+
+&rarr; Add the following import to `badge_controller.dart`:
 
 ```Dart
 import 'dart:async' show Future;
@@ -52,76 +58,78 @@ import 'dart:async' show Future;
 Ignore the 'Unused import' warning from the Editor. You'll soon be using the
 import.
 
-In `BadgeController` class, replace the `names` and `appellations` lists with
+&rarr; In the `BadgeController` class, replace the `names` and `appellations` lists with
 these static, empty lists:
 
 ```Dart
 class BadgeController {
-  // ...
+  ...
   static List<String> names = [];
   static List<String> appellations = [];
-  // ...
+  ...
 }
 ```
 
-In `BadgeController`, add a private `Http _http` field, and add a constructor
+In `BadgeController`, add a private final `Http _http` field, and add a constructor
 to initialize `_http`:
 
 ```Dart
 class BadgeController {
-  // ...
+  ...
   final Http _http;
   BadgeController(this._http);
-  // ...
+  ...
 }
 ```
 
-The `Http` service facilitates communication with the remote HTTP servers.
+Key information:
 
-You don't need to do anything to `ngBootstrap()` to use the `Http` service
-since an instance of it is automatically injected by Angular.
+* The `Http` service facilitates communication with remote HTTP servers.
+* You don't need to do anything to `ngBootstrap()` to use the `Http` service
+  because an instance of it is automatically injected by Angular.
 
-Now add a private `_loadData()` method to `BadgeController`:
+&rarr; Add a private `_loadData()` method to `BadgeController`:
 
 ```Dart
 class BadgeController {
-  // ...
+  ...
   Future _loadData() {
-    return _http.get('piratenames.json').then((HttpResponse response) {
-      names = response.data['names'];
-      appellations = response.data['appellations'];
-    });
+    return _http.get('packages/s1_basics/assets/piratenames.json')
+        .then((response) {
+          names = response.data['names'];
+          appellations = response.data['appellations'];
+        });
   }
-  // ...
+  ...
 }
 ```
 
-Here are some things to note about `_loadData`:
+Key information:
 
-* The `get` method is used to make Http GET requests.
+* The `get()` method makes HTTP GET requests.
 * The code uses a Future to perform the GET asynchronously. A Future is
 a way to get a value in the future. For JavaScript developers: Futures are
 similar to Promises.
 * The callback function for `then()` executes when the Future completes
 successfully, and the pirate names and appellations are read from the
-response  data.
+response data.
 
-Add a `dataLoaded` field to `BadgeController` and set it to `false`:
+&rarr; Add a `dataLoaded` field to `BadgeController` and set it to `false`:
 
 ```Dart
 class BadgeController {
-  // ...
+  ...
   bool dataLoaded = false;
-  // ...
+  ...
 }
 ```
 
-Replace the code you have for the `BadgeController` constructor with the
-following:
+&rarr; Put the following code in the `BadgeController` constructor:
+{PENDING: why bother to have the constructor up above?}
 
 ```Dart
 class BadgeController {
-  // ...
+  ...
   bool dataLoaded = false;
 
   BadgeController(this._http) {
@@ -131,15 +139,18 @@ class BadgeController {
           print('Could not read data from the JSON file: $error');
         });
   }
-  // ...
+  ...
 ```
 
-When `_loadData()` successfully reads the JSON content, `dataLoaded` becomes
-`true`. If the Future returned by `_loadData()` completes with an error,
-`catchError()` handles the error.  Chaining `then()` and `catchError()` when
-getting the value of Future is a common pattern in Dart asynchronous
-programming and can be thought as the rough equivalent of a synchronous
-try-catch block.
+Key information:
+
+* When `_loadData()` successfully reads the JSON content,
+  `dataLoaded` becomes `true`.
+* If the Future returned by `_loadData()` completes with an error,
+  `catchError()` handles the error.  
+* Chaining `then()` and `catchError()` when getting the value of Future
+  is a common pattern in asynchronous Dart programming.
+  You can think of it as the rough equivalent of a synchronous try-catch block.
 
 
 ### Edit piratebadge.html
