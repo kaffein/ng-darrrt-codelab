@@ -50,7 +50,7 @@ Now add the filter to the module definition:
 
 ```Dart
 ngBootstrap(module: new Module()
-  ..type(BadgesController)
+  ..type(BadgeController)
   ..type(NamesService)
   ..type(BadgeComponent)
   ..type(CapitalizeFilter));

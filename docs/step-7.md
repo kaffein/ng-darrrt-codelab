@@ -98,7 +98,7 @@ version:
 @NgController(
     selector: '[badges]',
     publishAs: 'ctrl')
-class BadgesController {
+class BadgeController {
   NamesService ns;
 
   PirateName pn = new PirateName();
@@ -106,7 +106,7 @@ class BadgesController {
   String get pirateName => pn.firstName.isEmpty ? '' :
     '${pn.firstName} the ${pn.appellation}';
 
-  BadgesController(this.ns);
+  BadgeController(this.ns);
 
   String _name = '';
 
@@ -177,7 +177,7 @@ dependency injector, so that your `main()` now looks like this:
 ```Dart
 void main() {
   ngBootstrap(module: new Module()
-    ..type(BadgesController)
+    ..type(BadgeController)
     ..type(NamesService)
     ..type(BadgeComponent));
 }

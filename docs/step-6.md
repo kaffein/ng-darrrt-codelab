@@ -1,9 +1,9 @@
 ## Step 6: Read from a JSON-encoded file
 
-In this step, you change the `PirateName` and the `BadgesController` classes to
+In this step, you change the `PirateName` and the `BadgeController` classes to
 get the list of names and appellations from a JSON file.
 
-_**Keywords**: HTTP Request, Dependency Injection_
+_**Keywords**: HTTP request, dependency injection_
 
 ### Create piratenames.json
 
@@ -52,11 +52,11 @@ import 'dart:async' show Future;
 Ignore the 'Unused import' warning from the Editor. You'll soon be using the
 import.
 
-In `BadgesController` class, replace the `names` and `appellations` lists with
+In `BadgeController` class, replace the `names` and `appellations` lists with
 these static, empty lists:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   static List<String> names = [];
   static List<String> appellations = [];
@@ -64,14 +64,14 @@ class BadgesController {
 }
 ```
 
-In `BadgesController`, add a private `Http _http` field, and add a constructor
+In `BadgeController`, add a private `Http _http` field, and add a constructor
 to initialize `_http`:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   final Http _http;
-  BadgesController(this._http);
+  BadgeController(this._http);
   // ...
 }
 ```
@@ -81,10 +81,10 @@ The `Http` service facilitates communication with the remote HTTP servers.
 You don't need to do anything to `ngBootstrap()` to use the `Http` service
 since an instance of it is automatically injected by Angular.
 
-Now add a private `_loadData()` method to `BadgesController`:
+Now add a private `_loadData()` method to `BadgeController`:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   Future _loadData() {
     return _http.get('piratenames.json').then((HttpResponse response) {
@@ -106,25 +106,25 @@ similar to Promises.
 successfully, and the pirate names and appellations are read from the
 response  data.
 
-Add a `dataLoaded` field to `BadgesController` and set it to `false`:
+Add a `dataLoaded` field to `BadgeController` and set it to `false`:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   bool dataLoaded = false;
   // ...
 }
 ```
 
-Replace the code you have for the `BadgesController` constructor with the
+Replace the code you have for the `BadgeController` constructor with the
 following:
 
 ```Dart
-class BadgesController {
+class BadgeController {
   // ...
   bool dataLoaded = false;
 
-  BadgesController(this._http) {
+  BadgeController(this._http) {
     _loadData()
         .then((_) => dataLoaded = true)
         .catchError((error) {
