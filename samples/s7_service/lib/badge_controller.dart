@@ -41,7 +41,7 @@ class BadgeController {
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
   String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
-  Future generateName() => ns.randomName().then((_name) {
-    name = _name;
+  Future generateName() => ns.randomName().then((aName) {
+    name = aName;
   });
 }

@@ -34,5 +34,6 @@ class NamesService {
     return loadData().then((_) => _oneRandom(appellations));
   }
 
-  String _oneRandom(List<String> list) => list[rand.nextInt(list.length)];
+  String _oneRandom(List<String> list) =>
+      list[rand.nextInt(list.length)];
 }
