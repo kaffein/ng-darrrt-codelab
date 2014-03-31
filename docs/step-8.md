@@ -12,11 +12,13 @@ want.
 
 ### Create a filter
 
-Create a file `filter/capitalize_filter.dart` in your work directory and
-paste the following content:
+&rarr; Create a `filter` directory under `lib`.
+
+&rarr; In the `lib/filter` directory, create a new file,
+`capitalize_filter.dart`, and copy the following content to it:
 
 ```Dart
-library capitalize_filter;
+library s1_basics.filter.capitalize_filter;
 
 import 'package:angular/angular.dart';
 
@@ -29,51 +31,64 @@ class CapitalizeFilter {
 }
 ```
 
-To create a custom filter in Angular, just create a simple Dart class that has
-a call method with the following signature:
+Key information:
+
+* The @NgFilter annotation {PENDING: explain}
+* To create a custom filter in Angular, just create a Dart class that has
+  a `call()` method with the following signature:
+
+  ```Dart
+  call(valueToFilter, optArg1, optArg2);
+  ```
+
+### Register the filter
+
+&rarr; In `lib/pirate_module.dart`, import the filter:
 
 ```Dart
-call(valueToFilter, optArg1, optArg2);
+import 'package:s1_basics/filter/capitalize_filter.dart';
+```
+
+&rarr; Add the filter to the module definition:
+
+```Dart
+...
+type(CapitalizeFilter);
+...
 ```
 
 ### Use the filter
 
-You need to register the filter in order to use . In `piratebadge.dart`, add
-this import:
-
-```Dart
-import 'filter/capitalize_filter.dart';
-```
-
-
-Now add the filter to the module definition:
-
-```Dart
-ngBootstrap(module: new Module()
-  ..type(BadgeController)
-  ..type(NamesService)
-  ..type(BadgeComponent)
-  ..type(CapitalizeFilter));
-```
-
-Now the filter can be used in `piratebadge.html`:
+&rarr; Now use the filter in `web/index.html`:
 
 ```HTML
+...
 <badge name="{{ctrl.pirateName | capitalize}}"
-        style='float: left; margin-left: 20px;'></badge>
+...
 ```
 
-Here, we pipe the `pirateName` through the filter.
+Key information:
 
-Run `piratebadge.html`. Type in content that is all in lowercase, and  see
-that the pirate name the is capitalized.
+* This code sets the badge name to filtered (capitalized) value of
+  the controller's `pirateName` variable.
+* Be sure to use `"{{...}}"`, not just `{{...}}`.
+  Quotation marks aren't necessary when you're just referring to a variable,
+  but they _are_ necessary if you perform any operations.
+  {PENDING: check!}
+
+
+### Run the app in Dartium
+
+&rarr; Type in a name, using all lowercase letters.
+
+In the badge, the pirate name is capitalized!
 
 ### Learn more about
  - [Introducing Filters](https://angulardart.org/tutorial/07-ch05-filter-service.html)
 
 ### Problems?
-Check your code against the files in [8-filter](../web/8-filter).
-- [piratebadge.html](../web/8-filter/piratebadge.html)
-- [piratebadge.dart](../web/8-filter/piratebadge.dart)
+Check your code against the files in [s8_filter](../samples/s8_filter).
+- [index.html](../samples/s8_filter/web/index.html)
+- [main.dart](../samples/s8_filter/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-7.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-7.md#step-7-use-a-service-to-get-data)
