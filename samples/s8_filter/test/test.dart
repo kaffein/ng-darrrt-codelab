@@ -6,7 +6,7 @@ library s8_filter.test;
 
 import 'package:unittest/unittest.dart';
 
-import 'packages/s8_filter/filter/capitalize_filter.dart';
+import 'packages/s8_filter/filters/capitalize_filter.dart';
 
 void main () {
   group('CapitalizeFilter', () {

@@ -8,7 +8,7 @@ import 'package:angular/angular.dart';
 
 import 'dart:async' show Future;
 
-import 'package:s8_filter/service/names_service.dart';
+import 'package:s8_filter/services/names_service.dart';
 import 'package:s8_filter/model.dart' show PirateName;
 
 @NgController(
@@ -16,6 +16,8 @@ import 'package:s8_filter/model.dart' show PirateName;
     publishAs: 'ctrl')
 class BadgeController {
   NamesService ns;
+  static const LABEL1 = 'Arrr! Write yer name!';
+  static const LABEL2 = 'Aye! Gimme a name!';
 
   PirateName pn = new PirateName();
 
@@ -37,16 +39,9 @@ class BadgeController {
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
-  String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
-    "Aye! Gimme a name!";
+  String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
-  Future generateName() {
-    return ns.randomAppellation()
-        .then((_appellation) => pn.appellation = _appellation)
-        .then((_) => ns.randomName())
-        .then((_name) {
-          pn.firstName = _name;
-          name = pn.firstName;
-        });
-  }
+  Future generateName() => ns.randomName().then((aName) {
+    name = aName;
+  });
 }

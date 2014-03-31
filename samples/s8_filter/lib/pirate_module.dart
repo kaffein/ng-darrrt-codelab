@@ -7,8 +7,8 @@ library s8_filter.pirate_module;
 import 'package:angular/angular.dart';
 import 'package:s8_filter/badge_controller.dart';
 import 'package:s8_filter/components/badge_component.dart';
-import 'package:s8_filter/service/names_service.dart';
-import 'package:s8_filter/filter/capitalize_filter.dart';
+import 'package:s8_filter/services/names_service.dart';
+import 'package:s8_filter/filters/capitalize_filter.dart';
 
 class PirateModule extends Module {
   PirateModule() {

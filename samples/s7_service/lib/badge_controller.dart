@@ -8,7 +8,7 @@ import 'package:angular/angular.dart';
 
 import 'dart:async' show Future;
 
-import 'package:s7_service/service/names_service.dart';
+import 'package:s7_service/services/names_service.dart';
 import 'package:s7_service/model.dart' show PirateName;
 
 @NgController(

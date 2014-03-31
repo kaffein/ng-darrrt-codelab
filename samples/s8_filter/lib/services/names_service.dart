@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library s8_filter.service.names_service;
+library s8_filter.services.names_service;
 
 import 'package:angular/angular.dart';
 import 'dart:async';
@@ -10,7 +10,7 @@ import 'dart:math';
 
 @NgInjectableService()
 class NamesService {
-  static final Random indexGen = new Random();
+  static final Random rand = new Random();
   final Http _http;
   List<String> names;
   List<String> appellations;
@@ -19,9 +19,13 @@ class NamesService {
 
   Future _load() {
     if (names != null) return new Future.value(true);
-    return _http.get('packages/s8_filter/assets/piratenames.json').then((HttpResponse response) {
-      names = response.data['names'];
-      appellations = response.data['appellations'];
+    return _http.get('packages/s8_filter/assets/piratenames.json')
+      .then((HttpResponse response) {
+        names = response.data['names'];
+        appellations = response.data['appellations'];
+    })
+    .catchError((error) {
+      print('Could not read data from the JSON file: $error');
     });
   }
 
@@ -33,5 +37,6 @@ class NamesService {
     return _load().then((_) => _oneRandom(appellations));
   }
 
-  String _oneRandom(List<String> list) => list[indexGen.nextInt(list.length)];
+  String _oneRandom(List<String> list) =>
+      list[rand.nextInt(list.length)];
 }
