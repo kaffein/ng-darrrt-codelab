@@ -16,6 +16,8 @@ import 'package:s7_service/model.dart' show PirateName;
     publishAs: 'ctrl')
 class BadgeController {
   NamesService ns;
+  static const LABEL1 = 'Arrr! Write yer name!';
+  static const LABEL2 = 'Aye! Gimme a name!';
 
   PirateName pn = new PirateName();
 
@@ -37,8 +39,7 @@ class BadgeController {
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
-  String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
-    "Aye! Gimme a name!";
+  String get label => inputIsNotEmpty ? LABEL1 : LABEL2;
 
   Future generateName() => ns.randomName().then((_name) {
     name = _name;
