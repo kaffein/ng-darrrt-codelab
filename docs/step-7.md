@@ -4,7 +4,7 @@ This step converts Step 6's example to use a service
 (NamesService) to load and provide names.
 
 Step 4 hard coded data in the controller.
-Step 5 added functionality to read the data from a JSON file.
+Step 6 modified the controller to read the data from a JSON file.
 This step moves all aspects of fetching a pirate name out of the controller and into a service,
 creating a clean separation of logic in the app:
 
@@ -17,12 +17,13 @@ _**Keywords**: service_
 
 ### Create a service
 
-In the location that you created the `badge/` directory in Step 4, create a
-new directory and call it `service`. In this directory, create a new file,
+&rarr; Create a `service` directory under `lib`.
+
+&rarr; In the `lib/service` directory, create a new file,
 `names_service.dart`, and copy the following content to it:
 
 ```Dart
-library ng_dart_codelab.names_service;
+library s1_basics.service.names_service;
 
 import 'package:angular/angular.dart';
 import 'dart:async';
@@ -30,16 +31,17 @@ import 'dart:math';
 
 @NgInjectableService()
 class NamesService {
-  static final Random rand = new Random();
+  static Random rand = new Random();
   final Http _http;
   List<String> names;
   List<String> appellations;
 
   NamesService(this._http);
 
-  Future _loadData() {
+
+  Future loadData() {
     if (names != null) return new Future.value(true);
-    return _http.get('piratenames.json')
+    return _http.get('packages/s1_basics/assets/piratenames.json')
       .then((HttpResponse response) {
         names = response.data['names'];
         appellations = response.data['appellations'];
@@ -50,56 +52,62 @@ class NamesService {
   }
 
   Future<String> randomName() {
-    return _loadData().then((_) => _oneRandom(names));
+    return loadData().then((_) => _oneRandom(names));
   }
 
   Future<String> randomAppellation() {
-    return _loadData().then((_) => _oneRandom(appellations));
+    return loadData().then((_) => _oneRandom(appellations));
   }
 
   String _oneRandom(List<String> list) => list[rand.nextInt(list.length)];
 }
 ```
 
-We create a `NamesService` class and move much of the Step 6 controller logic
-into this class:
+Key information:
+* This file creates a `NamesService` class.
+* The `@NgInjectableService` annotation on NamesService
+  indicates that the NamesService class will be instantiated by Angular's dependency injector.
+* Much of the logic that was in the controller is now in the NamesService class, specifically:
+  * The `names` and `appellations` lists
+  * The `_oneRandom()` method
+  * The `_loadData()` method (renamed to `loadData()`)
+* The NamesService class defines `randomName()` and `randomAppellation()` helper methods
+  to fetch random data selections.
+* The NamesService version of the `_loadData()` method is a bit optimized:
+  it now checks whether the `names` list has already been populated and
+  fetches data only if it hasn't.
+  As a result, you can call `randomName()` and `randomAppellation()` without
+  reloading the JSON data.
+* The HTTP GET loads data from the current package (`s1_basics`).
+  If you use a different package name, you need to change the argument
+  to `get()`.
 
-* You've moved the `names` and `appellations` lists here
-* You've copied over the `_oneRandom()` method over verbatim, and you've
-defined the `randomName()` and `randomAppellation()` helper methods to fetch
-random data selections.
-* You've redefined the `_loadData()` method and introduced an optimization:
-the method now checks if the `names` list has already been populated and
-fetches data only if it hasn't. As a result, you can call `randomName()` and
-`randomAppellation()` without loading up the JSON data every time.
-
-Note the `@NgInjectableService` annotation for the `NamesService` class? When
-applied to a class, this annotation indicates that the class will be
-instantiated by Angular's dependency injector. We'll get to plugging that in
-later in this step.
 
 
 ### Clean up the controller
 
-First, add the following import statement along with the other import statements
-at the top:
+In this step, you edit `lib/badge_controller.dart`.
+
+&rarr; Import the service:
 
 ```Dart
 // ...
-import 'service/names_service.dart';
+import 'package:s1_basic/service/names_service.dart';
 // ...
 ```
 
-Don't worry about the 'Unused Warning' from the Editor. We'll fix that soon
-enough.
+Don't worry about the 'Unused import' warning from the Editor.
+We'll fix that soon enough.
 
-Much of the Step 6 controller logic relating to fetching data can now be
-stripped away. Replace your controller from the previous step with this
-version:
+&rarr; Strip out the code that's duplicated in NamesService,
+and use a NamesService object instead.
+
+Your controller should now look like this:
+{PENDING: split up, explain better}
 
 ```Dart
 @NgController(
-    selector: '[badges]',
+    selector: '[badge-controller]',
     publishAs: 'ctrl')
 class BadgeController {
   NamesService ns;
@@ -124,73 +132,63 @@ class BadgeController {
   }
 
   bool get inputIsNotEmpty => name.trim().isNotEmpty;
-
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
-  generateName() => ns.randomName().then((_name) {
-    name = _name;
+  Future generateName() => ns.randomName().then((aName) {
+    name = aName;
   });
 }
 ```
-You've added a `NamesService` instance as a field to the controller:
 
-```Dart
-  NamesService ns;
-```
+Key information:
 
-You've changed the `name` setter to use the service to construct the pirate
-name:
+* A `NamesService` instance is now a field of the controller.
+* The `name` setter now uses the service to construct the pirate name.
+* The `generateName()` method also uses the service:
+* The `generateName()` method updates the value of `_name`,
+  triggering the `name` setter,
+  which updates `pn.firstName` and `pn.appellation`.
+* The controller now has no knowledge of how the data is generated,
+  but can request it from the service when needed.
 
-```Dart
-set name(newName) {
-  _name = newName;
-  ns.randomAppellation().then((appellation) {
-    pn..firstName = newName
-      ..appellation = appellation;
-  });
-```
-
-And you've modified `generateName()` to also use the service:
-
-```Dart
-generateName() => ns.randomName().then((_name) {
-  name = _name;
-});
-```
-
-Note that `generateName()` updates the value of `_name`. This triggers the
-`name` setter, which updates `pn.firstName` and `pn.appelation`.
-
-The controller now has no knowledge of how the data is generated, but can
-request it from the service when needed.
-
-Since the code for picking random values has been moved to the service, you
-can remove this unused import:
+&rarr; Remove this unused import:
 
 ```Dart
 import 'dart:math' show Random;
 ```
 
-### Use the service
+### Register the service
 
-Add the `NamesService` type to `ngBootstrap()` to instantiate it using the
-dependency injector, so that your `main()` now looks like this:
+&rarr; In `lib/pirate_module.dart`,
+import `names_service.dart` and add the `NamesService` type:
 
 ```Dart
-void main() {
-  ngBootstrap(module: new Module()
-    ..type(BadgeController)
-    ..type(NamesService)
-    ..type(BadgeComponent));
-}
+...
+import 'package:s1_basic/service/names_service.dart';
+...
+    type(NamesService);
+...
 ```
+
+Key information:
+
+* Adding the NamesService type
+  allows the AngularDart dependency injector
+  to instantiate NamesService objects.
+* The dependency injector instantiates a NamesService object
+  whenever Angular creates a BadgeController,
+  thanks to the BadgeController constructor having an argument
+  of type NamesService.
 
 ### Update the UI
 
-Notice that the `dataLoaded` field has been removed from the controller? You no
-longer fetch data when the page loads, but instead wait for user action before
-doing so. Update `pirateBadge.html` so that the markup for your input and
+Notice that the `dataLoaded` field has been removed from the controller.
+You no longer fetch data when the page loads,
+but instead wait for user action before doing so.
+As a result, you need to enable the UI before data has loaded.
+
+&rarr; Update `web/index.html` so that the markup for your input and
 button look like this:
 
 ```HTML
@@ -206,15 +204,16 @@ button look like this:
 </div>
 ```
 
-Save your changes and run your app.
+### Run the app in Dartium
+
+The app should look like it did before,
+but you might notice that the controls are enabled by default.
 
 ### Problems?
-Check your code against the files in [7-service](../web/7-service).
-- [piratebadge.html](../web/7-service/piratebadge.html)
-- [piratebadge.dart](../web/7-service/piratebadge.dart)
-- [piratebadge.json](../web/7-service/piratenames.json)
-- [names_service.dart](../web/7-service/service/names_service.dart)
+Check your code against the files in [s7_service](../samples/s7_service).
+- [index.html](../samples/s7_service/web/index.html)
+- [main.dart](../samples/s7_service/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-6.md) | [Next >](step-8.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-6.md#step-6-read-from-a-json-encoded-file) | [Next >](step-8.md#step-8-use-a-filter-to-modify-data)
 
 
