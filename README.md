@@ -18,7 +18,7 @@ Before AngularDart's 1.0 release,
 we expect to fix
 [these bugs](https://github.com/angular/angular.dart/issues?milestone=12)
 (and more).
-This tutorial uses AngularDart version 0.9.10.
+**This tutorial uses AngularDart version 0.9.10.**
 If you use a more recent version, you'll need to make some
 [changes](docs/diffs.md).
 <!-- put screenshot here? -->
