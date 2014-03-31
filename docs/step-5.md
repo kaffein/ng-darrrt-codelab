@@ -118,7 +118,7 @@ class BadgeController {
 
   set name(newName) {
     _name = newName;
-    pn..firstName = name
+    pn..firstName = newName
       ..appellation = _oneRandom(appellations);
   }
   // ...
