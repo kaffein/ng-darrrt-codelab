@@ -41,7 +41,7 @@ class NamesService {
 
   Future loadData() {
     if (names != null) return new Future.value(true);
-    return _http.get('packages/s7_service/assets/piratenames.json')
+    return _http.get('packages/s1_basics/assets/piratenames.json')
       .then((HttpResponse response) {
         names = response.data['names'];
         appellations = response.data['appellations'];
@@ -78,6 +78,10 @@ Key information:
   fetches data only if it hasn't.
   As a result, you can call `randomName()` and `randomAppellation()` without
   reloading the JSON data.
+* The HTTP GET loads data from the current package (`s1_basics`).
+  If you use a different package name, you need to change the argument
+  to `get()`.
+
 
 
 ### Clean up the controller
@@ -88,14 +92,16 @@ In this step, you edit `lib/badge_controller.dart`.
 
 ```Dart
 // ...
-import 'service/names_service.dart';
+import 'package:s1_basic/service/names_service.dart';
 // ...
 ```
 
-Don't worry about the 'Unused Warning' from the Editor. We'll fix that soon
-enough.
+Don't worry about the 'Unused import' warning from the Editor.
+We'll fix that soon enough.
 
-&rarr; Strip out the data fetching code.
+&rarr; Strip out the code that's duplicated in NamesService,
+and use a NamesService object instead.
+
 Your controller should now look like this:
 {PENDING: split up, explain better}
 
@@ -129,8 +135,8 @@ class BadgeController {
   String get label => inputIsNotEmpty ? "Arrr! Write yer name!" :
     "Aye! Gimme a name!";
 
-  Future generateName() => ns.randomName().then((_name) {
-    name = _name;
+  Future generateName() => ns.randomName().then((aName) {
+    name = aName;
   });
 }
 ```
@@ -145,8 +151,6 @@ Key information:
   which updates `pn.firstName` and `pn.appellation`.
 * The controller now has no knowledge of how the data is generated,
   but can request it from the service when needed.
-
-{PENDING: change _name in generateName to another name?}
 
 &rarr; Remove this unused import:
 
@@ -210,6 +214,6 @@ Check your code against the files in [s7_service](../samples/s7_service).
 - [index.html](../samples/s7_service/web/index.html)
 - [main.dart](../samples/s7_service/web/main.dart)
 
-## [Home](../README.md) | [< Previous](step-6.md) | [Next >](step-8.md)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-6.md#step-6-read-from-a-json-encoded-file) | [Next >](step-8.md#step-8-use-a-filter-to-modify-data)
 
 
