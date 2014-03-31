@@ -39,7 +39,7 @@ class NamesService {
   NamesService(this._http);
 
 
-  Future loadData() {
+  Future _loadData() {
     if (names != null) return new Future.value(true);
     return _http.get('packages/s1_basics/assets/piratenames.json')
       .then((HttpResponse response) {
@@ -52,11 +52,11 @@ class NamesService {
   }
 
   Future<String> randomName() {
-    return loadData().then((_) => _oneRandom(names));
+    return _loadData().then((_) => _oneRandom(names));
   }
 
   Future<String> randomAppellation() {
-    return loadData().then((_) => _oneRandom(appellations));
+    return _loadData().then((_) => _oneRandom(appellations));
   }
 
   String _oneRandom(List<String> list) => list[rand.nextInt(list.length)];
@@ -70,7 +70,7 @@ Key information:
 * Much of the logic that was in the controller is now in the NamesService class, specifically:
   * The `names` and `appellations` lists
   * The `_oneRandom()` method
-  * The `_loadData()` method (renamed to `loadData()`)
+  * The `_loadData()` method
 * The NamesService class defines `randomName()` and `randomAppellation()` helper methods
   to fetch random data selections.
 * The NamesService version of the `_loadData()` method is a bit optimized:
