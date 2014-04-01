@@ -23,3 +23,5 @@ What you need to change:
 * If you generate a JavaScript version of your AngularDart app,
   use `pub serve` or `pub build`,
   so that the transformer runs.
+
+##[Home](../README.md#code-lab-angulardart)
