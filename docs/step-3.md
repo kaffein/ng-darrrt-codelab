@@ -109,7 +109,7 @@ to BadgeController.
 <!-- PENDING: add key info about getters -->
 
 
-### Register BadgeController
+### Register the controller
 
 To register the BadgeController class,
 you need to edit `lib/pirate_module.dart`.
