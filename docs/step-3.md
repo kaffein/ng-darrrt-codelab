@@ -8,7 +8,7 @@ but it's a good way to modularize your app.
 
 _**Keywords**: controller, module, click event, defining a library_
 
-### Create a lib directory and 2 new Dart files
+### Create a lib directory and new Dart files
 
 &rarr; Create a `lib` directory at the same level as the `web` directory.
 
