@@ -149,6 +149,9 @@ Key information:
   a class definition.
 * The `library` line isn't necessary now,
   but it will come in handy later when we add more Dart files to this app.
+* By convention, library names begin with the package name (`s1_basics`),
+  followed by a dot (`.`),
+  followed by a library-specific name (`main`).
 
 ### Run the app in Dartium
 
