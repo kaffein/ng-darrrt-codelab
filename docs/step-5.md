@@ -97,18 +97,14 @@ as a string you can use in the app's UI.
 &rarr; _Replace_ the line `String name = '';` with the following code:
 
 ```Dart
-class BadgeController {
-  // ...
-  String _name = '';
+String _name = '';
 
-  get name => _name;
+get name => _name;
 
-  set name(newName) {
-    _name = newName;
-    pn..firstName = newName
-      ..appellation = _oneRandom(appellations);
-  }
-  // ...
+set name(newName) {
+  _name = newName;
+  pn..firstName = newName
+    ..appellation = _oneRandom(appellations);
 }
 ```
 
