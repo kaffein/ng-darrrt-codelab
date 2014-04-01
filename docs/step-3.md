@@ -1,7 +1,10 @@
 ## Step 3: Add a button and controller
 
 In this step you add a button and a controller that coordinates the button, label, and badge.
-The Dart code for the controller goes into libraries in a new `lib` directory.
+You also start splitting your code into multiple libraries.
+Implementing multiple libraries is optional,
+but it's a good way to modularize your app.
+
 
 _**Keywords**: controller, module, click event, defining a library_
 
@@ -32,13 +35,12 @@ Key information:
   any libraries that are imported with `package:this_package`
   (where <em>this_package</em> is the current package's name, as declared in the pubspec).
 - Both `badge_controller.dart` and `pirate_module.dart` will declare libraries.
-- Using multiple libraries is optional.
-  We did it so you could learn how to use libraries to modularize your app.
-- <em>{PENDING: Add note about `s1_basics` vs. `s3_controller`
-  if we keep the names different.}</em>
 
 
-### Edit badge_controller.dart
+### Implement the controller
+
+To implement the controller for this app,
+edit `lib/badge_controller.dart`.
 
 &rarr; Add the following code to declare and import libraries.
 
@@ -49,7 +51,6 @@ import 'package:angular/angular.dart';</b>
 </pre>
 
 If you're using Dart Editor, it warns you that the import is unused.
-_{PENDING: Say something about the library name.}_
 
 
 &rarr; Create an empty class named `BadgeController`, and give it a `name` property.
@@ -89,7 +90,6 @@ Class BadgeController {
 
 Note that Dart Editor italicizes static values (and static methods, too).
 
-<em>{PENDING: talk about i18n?}</em>
 
 &rarr; Add an `inputIsNotEmpty` getter, a `label` getter, and a `generateName()` method
 to BadgeController.
@@ -107,7 +107,12 @@ to BadgeController.
 </pre>
 
 <!-- PENDING: add key info about getters -->
-### Edit pirate_module.dart
+
+
+### Register BadgeController
+
+To register the BadgeController class,
+you need to edit `lib/pirate_module.dart`.
 
 &rarr; Add the following code to declare and import libraries.
 
@@ -136,8 +141,11 @@ Key information:
   to the list of modules that Angular loads.
 
 
-### Edit main.dart
-    
+### Instantiate and use PirateModule
+
+Now edit `main.dart`,
+so that it uses a PirateModule object.
+
 &rarr; Modify the `main()` method to instantiate PirateModule.
 
 <pre>
@@ -149,7 +157,10 @@ void main() {
 </pre>
     
 
-### Edit index.html
+### Hook up the controller to the HTML file
+
+Now edit `web/index.html`,
+so that it uses the controller.
 
 &rarr; Add `badge-controller` to the `<body>` element.
 
@@ -163,6 +174,7 @@ Key information:
   controls every element under `<body>`.
 
 &rarr; Move `ng-cloak` up to the `<body>` element.
+<!-- PENDING: why? really necessary? -->
 
 <pre>
 &lt;body badge-controller <b>ng-cloak</b>>
@@ -187,19 +199,15 @@ Key information:
 
 * `ng-click` is a built-in Angular directive that
   allows you to specify custom behavior when an element is clicked.
-  In our example, it invokes the generateName() method on the controller.
+  In our example, it invokes the `generateName()` method on the controller.
 * As `{{ctrl.label}}` shows, an Angular expression can refer to a getter.
 
-<em>{PENDING: Dart Editor warned me about generateName, label, and inputIsNotEmpty not being
-defined in BadgeController. However, the app still ran fine.}</em>
 
 &rarr; Update data binding: replace `name` with `ctrl.name`.
 
 <pre>
 &lt;input type="text" id="inputName" maxlength="15" ng-model="<b>ctrl.name</b>">
-</pre>
-
-<pre>
+...
 &lt;span id="badgeName">{{<b>ctrl.name</b>}}</span>
 </pre>
     
@@ -219,11 +227,13 @@ Key information:
 
 ### Run the app in Dartium
 
-Once the app is running, click the button.
+&rarr; Once the app is running, click the button.
+
 "Anne Bonney" appears in the text field and badge,
 and the button becomes disabled.
 
-Erase all text from the input field.
+&rarr; Erase all text from the input field.
+
 The button becomes enabled again.
 
 ### Problems?
