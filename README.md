@@ -21,7 +21,7 @@ we expect to fix
 (and more).
 **This tutorial uses AngularDart version 0.9.8.**
 If you use a more recent version, you'll need to make some
-[changes](docs/diffs.md).
+[changes](docs/diffs.md#differences-between-angulardart-versions).
 <!-- put screenshot here? -->
 
 
