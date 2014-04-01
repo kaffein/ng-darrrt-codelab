@@ -71,7 +71,7 @@ class BadgeController {
 }
 ```
 
-In `BadgeController`, add a private final `Http _http` field:
+&rarr; In `BadgeController`, add a private final `Http _http` field:
 
 ```Dart
 class BadgeController {
@@ -107,11 +107,11 @@ Key information:
 
 * The `get()` method makes HTTP GET requests.
 * The code uses a Future to perform the GET asynchronously. A Future is
-a way to get a value in the future. For JavaScript developers: Futures are
-similar to Promises.
+  a way to get a value in the future. For JavaScript developers: Futures are
+  similar to Promises.
 * The callback function for `then()` executes when the Future completes
-successfully, and the pirate names and appellations are read from the
-response data.
+  successfully. The callback then extracts the pirate names and appellations
+  from the response data.
 
 &rarr; Add a `dataLoaded` field to `BadgeController` and set it to `false`:
 
@@ -177,11 +177,10 @@ Key information:
   is set on the element.
 * When `ctrl.dataLoaded` is false, the input
   and button elements are disabled.
-* The `ng-disabled` attribute is defined,
-  along with other boolean attributes such as `ng-required`, in
-  [NgBooleanAttributeDirective](https://docs.angulardart.org/#angular/angular-directive.NgBooleanAttributeDirective).
-  {PENDING: It seems a little weird to discuss ng-disabled now,
-  when we've already used it in a previous step. Move/split discussion?}
+* `ng-disabled` isn't the only boolean attribute.
+  See [NgBooleanAttributeDirective](https://docs.angulardart.org/#angular/angular-directive.NgBooleanAttributeDirective)
+  for a list of other boolean attributes, such as `ng-required`.
+
 
 ### Learn more
  - [Introducing the Http service](https://github.com/angular/angular.dart.tutorial/wiki/Introducing-filters-and-services)

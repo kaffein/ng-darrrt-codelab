@@ -17,13 +17,13 @@ _**Keywords**: service_
 
 ### Create a service
 
-&rarr; Create a `service` directory under `lib`.
+&rarr; Create a `services` directory under `lib`.
 
-&rarr; In the `lib/service` directory, create a new file,
-`names_service.dart`, and copy the following content to it:
+&rarr; In the `lib/services` directory, create a new file,
+`names_service.dart`, and put the following content in it:
 
 ```Dart
-library s1_basics.service.names_service;
+library s1_basics.services.names_service;
 
 import 'package:angular/angular.dart';
 import 'dart:async';
@@ -37,7 +37,6 @@ class NamesService {
   List<String> appellations;
 
   NamesService(this._http);
-
 
   Future _loadData() {
     if (names != null) return new Future.value(true);
@@ -86,13 +85,13 @@ Key information:
 
 ### Clean up the controller
 
-In this step, you edit `lib/badge_controller.dart`.
+Now edit `lib/badge_controller.dart`.
 
 &rarr; Import the service:
 
 ```Dart
 // ...
-import 'package:s1_basic/service/names_service.dart';
+import 'package:s1_basic/services/names_service.dart';
 // ...
 ```
 
@@ -103,7 +102,7 @@ You'll soon be using the import.
 and use a NamesService object instead.
 
 Your controller should now look like this:
-{PENDING: split up, explain better}
+<!-- PENDING: split up, explain better -->
 
 ```Dart
 @NgController(
@@ -145,17 +144,14 @@ Key information:
 
 * A `NamesService` instance is now a field of the controller.
 * The `name` setter now uses the service to construct the pirate name.
-* The `generateName()` method also uses the service:
-* The `generateName()` method updates the value of `_name`,
-  triggering the `name` setter,
-  which updates `pn.firstName` and `pn.appellation`.
+* The `generateName()` method also uses the service.
 * The controller now has no knowledge of how the data is generated,
   but can request it from the service when needed.
 
 &rarr; Remove this unused import:
 
 ```Dart
-import 'dart:math' show Random;
+import 'dart:math' show Random; // DELETE
 ```
 
 ### Register the service
@@ -165,7 +161,7 @@ import `names_service.dart` and add the `NamesService` type:
 
 ```Dart
 ...
-import 'package:s1_basic/service/names_service.dart';
+import 'package:s1_basic/services/names_service.dart';
 ...
     type(NamesService);
 ...
