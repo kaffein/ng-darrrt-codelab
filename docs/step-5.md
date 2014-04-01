@@ -1,10 +1,12 @@
 ## Step 5: Use a class as a model
 
 In this step, you define and use a model.
+You also add some ready-made pirate names and appellations to the app,
+along with a way to randomly choose them.
 
 _**Keywords**: class, model_
 
-### Create a model (PirateName)
+### Create a model
 
 &rarr; Create a file named `lib/model.dart`,
 and add the following code to it:
@@ -19,17 +21,14 @@ class PirateName {
 ```
 
 You've just implemented the model for this app.
-{PENDING: say more? Maybe under "Key information"?
+<!-- PENDING: say more? Maybe under "Key information"? 
 It's kind of interesting that it has two optional parameters that set the two fields.
-Talk about where this model is used?}
-
-{PENDING: talk about library name?}
+Talk about where this model is used?-->
 
 
 ### Update the controller
 
-Now you'll edit `lib/badge_controller.dart`,
-which is by far the most-changed file in this step.
+Now edit `lib/badge_controller.dart`.
 
 &rarr; Add the following imports to `lib/badge_controller.dart`:
 
@@ -38,7 +37,7 @@ import 'dart:math' show Random;
 import 'package:s1_basics/model.dart';
 ```
 
-The Editor will complain about unused imports. Don't worry about that, we'll
+The editor complains about unused imports. Don't worry about that, we'll
 be using `Random` and the model later in this step.
 
 
@@ -92,22 +91,10 @@ class BadgeController {
 }
 ```
 
-This getter returns the complete name of the pirate. You will soon add code to
-pass the string returned by this getter as an argument to the component that we
-created in step 4.
+This getter returns the complete name of the pirate,
+as a string you can use in the app's UI.
 
-`BadgeController` contains a `name` field:
-
-```Dart
-class BadgeController {
-  // ...
-  String name = '';
-  // ...
-}
-```
-
-&rarr; _Replace_ that line with the following code:
-
+&rarr; _Replace_ the line `String name = '';` with the following code:
 
 ```Dart
 class BadgeController {
@@ -126,9 +113,12 @@ class BadgeController {
 ```
 
 Key information:
-* We've added a private `_name` field that we'll later bind into the UI.
-* We've defined a getter and a setter to get and set the value of `_name`.
-* The setter also sets the `firstName` and `appellation` fields of the
+* This code adds a private `_name` field that we'll later bind into the UI.
+* A getter and a setter called `name` get and set the value of `_name`.
+* Dart is designed so that you can change a property's implementation
+  from a field to a getter and setter without changing its API.
+  In this case, code that uses `name` keeps working.
+* The `name` setter also sets the `firstName` and `appellation` fields of the
 `PirateBadge` object.
 * Every time the value of `_name` changes, the change is reflected in `pn`,
   the public `PirateName` object.
@@ -155,7 +145,7 @@ class BadgeController {
 
 ### Update data bindings
 
-Now it's time to use the `pirateName` controller getter.
+Now it's time to use the controller's `pirateName` getter.
 
 &rarr; In `web/index.html`, update the data binding in the `badge` tag to use
 that getter:
@@ -169,7 +159,7 @@ that getter:
 
 You should be able to enter text into the input box and see
 a pirate name in the pirate badge. You should also be able to generate a
-random pirate name by clicking on the button.
+random pirate name by clicking the button.
 
 ### Problems?
 Check your code against the files in [s5_model](../samples/s5_model).

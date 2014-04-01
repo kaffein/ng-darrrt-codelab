@@ -10,11 +10,11 @@ _**Keywords**: component, Shadow DOM_
 &rarr; Under the `lib` directory,
 create a directory named `components`.
 
-The `components` directory will contain all of the files for the new component.
+The `lib/components` directory will contain all of the files for the new component.
 
 ### Create an HTML file for the component
 
-&rarr; Under the `components` directory,
+&rarr; Under the `lib/components` directory,
 create a file named `badge_component.html`
 with the following contents:
 
@@ -31,7 +31,7 @@ with the following contents:
 
 ### Create a CSS file for the component
 
-&rarr; Under the `components` directory,
+&rarr; Under the `lib/components` directory,
 create a file named `badge_component.css`
 with the following contents:
 
@@ -65,7 +65,7 @@ with the following contents:
 
 ### Create a Dart file for the component
 
-&rarr; Under the `components` directory,
+&rarr; Under the `lib/components` directory,
 create a file named `badge_component.dart`
 with the following contents:
 
