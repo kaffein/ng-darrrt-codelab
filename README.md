@@ -29,15 +29,15 @@ If you use a more recent version, you'll need to make some
 
 This code lab has the following sections:
 
-* [Step 0: Set up](docs/step-0.md)
-* [Step 1: Run the app, and view its code](docs/step-1.md)
-* [Step 2: Add an input field](docs/step-2.md)
-* [Step 3: Add a button and controller](docs/step-3.md)
-* [Step 4: Create a custom component](docs/step-4.md)
-* [Step 5: Use a class as a model](docs/step-5.md)
-* [Step 6: Read from a JSON-encoded file](docs/step-6.md)
-* [Step 7: Use a service to get data](docs/step-7.md)
-* [Step 8: Use a filter to modify data](docs/step-8.md)
+* [Step 0: Set up](docs/step-0.md#step-0-set-up)
+* [Step 1: Run the app, and view its code](docs/step-1.md#step-1-run-the-app-and-view-its-code)
+* [Step 2: Add an input field](docs/step-2.md#step-2-add-an-input-field)
+* [Step 3: Add a button and controller](docs/step-3.md#step-3-add-a-button-and-controller)
+* [Step 4: Create a custom component](docs/step-4.md#step-4-create-a-custom-component)
+* [Step 5: Use a class as a model](docs/step-5.md#step-5-use-a-class-as-a-model)
+* [Step 6: Read from a JSON-encoded file](docs/step-6.md#step-6-read-from-a-json-encoded-file)
+* [Step 7: Use a service to get data](docs/step-7.md#step-7-use-a-service-to-get-data)
+* [Step 8: Use a filter to modify data](docs/step-8.md#step-8-use-a-filter-to-modify-data)
 
 
 ### Useful links
