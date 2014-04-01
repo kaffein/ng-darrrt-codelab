@@ -1,24 +1,25 @@
 ## Step 8: Use a filter to modify data
 
-In this step, you implement a filter to modify data.
+In this step, you implement a custom filter to modify data.
+
+Filters let you change how your model data is displayed in the view without
+changing the model data itself. For example, they're useful for showing
+parts of a model's data, or displaying data in a particular format.
+Angular has built-in filters such as CurrencyFilter and DateFilter.
+You can also easily create and use your own filters,
+as this step shows.
 
 _**Keywords**: filter_
 
-Filters let you change how your model data is displayed in the view without
-changing the model data itself. They do things like allow you to show parts of
-the model data, or display data in a particular format. You can also use
-Angular’s custom filters feature to create your own filters to do anything you
-want.
-
 ### Create a filter
 
-&rarr; Create a `filter` directory under `lib`.
+&rarr; Create a `filters` directory under `lib`.
 
-&rarr; In the `lib/filter` directory, create a new file,
+&rarr; In the `lib/filters` directory, create a new file,
 `capitalize_filter.dart`, and copy the following content to it:
 
 ```Dart
-library s1_basics.filter.capitalize_filter;
+library s1_basics.filters.capitalize_filter;
 
 import 'package:angular/angular.dart';
 
@@ -33,20 +34,20 @@ class CapitalizeFilter {
 
 Key information:
 
-* The @NgFilter annotation {PENDING: explain}
-* To create a custom filter in Angular, just create a Dart class that has
-  a `call()` method with the following signature:
-
-  ```Dart
-  call(valueToFilter, optArg1, optArg2);
-  ```
+* The @NgFilter annotation on CapitalizeFilter tells
+  Angular to publish the class as a filter.
+* Each custom filter in AngularDart requires a class that has
+  a `call()` method with at least one argument:
+  `call(valueToFilter, optArg1, ..., optArgN)`
+* The `call()` method's first argument is the value to filter.
+* The `call()` method should return the filtered value.
 
 ### Register the filter
 
 &rarr; In `lib/pirate_module.dart`, import the filter:
 
 ```Dart
-import 'package:s1_basics/filter/capitalize_filter.dart';
+import 'package:s1_basics/filters/capitalize_filter.dart';
 ```
 
 &rarr; Add the filter to the module definition:
@@ -74,7 +75,7 @@ Key information:
 * Be sure to use `"{{...}}"`, not just `{{...}}`.
   Quotation marks aren't necessary when you're just referring to a variable,
   but they _are_ necessary if you perform any operations.
-  {PENDING: check!}
+  <!-- PENDING: check that this is intentional and will remain true -->
 
 
 ### Run the app in Dartium
@@ -84,7 +85,9 @@ Key information:
 In the badge, the pirate name is capitalized!
 
 ### Learn more
- - [Introducing Filters](https://angulardart.org/tutorial/07-ch05-filter-service.html)
+ - [Introducing Filters and Services](https://angulardart.org/tutorial/07-ch05-filter-service.html)
+ - [angular.filter API reference](https://docs.angulardart.org/#angular/angular-filter)
+ 
 
 ### Problems?
 Check your code against the files in [s8_filter](../samples/s8_filter).
