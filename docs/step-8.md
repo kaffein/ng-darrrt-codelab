@@ -75,7 +75,8 @@ Key information:
 * Be sure to use `"{{...}}"`, not just `{{...}}`.
   Quotation marks aren't necessary when you're just referring to a variable,
   but they _are_ necessary if you perform any operations.
-  <!-- PENDING: check that this is intentional and will remain true -->
+
+<!-- PENDING: check that optional quotation mark feature is intentional and will remain true -->
 
 
 ### Run the app in Dartium
