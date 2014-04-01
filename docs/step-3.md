@@ -141,7 +141,7 @@ Key information:
   to the list of modules that Angular loads.
 
 
-### Instantiate and use PirateModule
+### Instantiate and use the module
 
 Now edit `main.dart`,
 so that it uses a PirateModule object.
