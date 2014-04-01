@@ -173,7 +173,9 @@ random pirate name by clicking on the button.
 
 ### Problems?
 Check your code against the files in [s5_model](../samples/s5_model).
-- [index.html](../samples/s5_model/web/index.html)
-- [main.dart](../samples/s5_model/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s5_model contain `s5_model`.
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-4.md#step-4-create-a-custom-component) | [Next >](step-6.md#step-6-read-from-a-json-encoded-file)

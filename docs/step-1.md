@@ -18,7 +18,7 @@ clicking the little arrow ► to the left of its name.
 
 ![Each step has its own pubspec.* files, defining the app's dependencies; a packages directory appears; the final code for the step is under web/.](img/s1-open-sample.png).
 
-[PENDING: delete `img/fileview.png`]
+<!-- PENDING: delete `img/fileview.png` -->
 
 
 **Note:**
@@ -26,6 +26,8 @@ If you see red X’s
 at the left of the filenames or if the `packages` directory doesn't appear,
 the packages are not properly installed.
 Right-click `pubspec.yaml` and select **Pub Get**.
+(Do **not** use pub upgrade.
+This code lab is tied to a specific version of AngularDart.)
 
 ### Open the app's source files
 
@@ -46,7 +48,7 @@ double-click `index.html` and `main.dart`.
 
 ![Open 3 source files](img/s1-open-files.png)
 
-{PENDING: delete `img/openfiles.png`}
+<!-- PENDING: delete `img/openfiles.png` -->
 
 ### Review the code
 
@@ -129,7 +131,6 @@ Key information:
 
 This version of the app does nothing,
 and has almost no Dart code.
-In the next step, you'll add some code.
 
 ```Dart
 library s1_basics.main;
@@ -149,16 +150,18 @@ Key information:
 * The `library` line isn't necessary now,
   but it will come in handy later when we add more Dart files to this app.
 
-### Run the app
+### Run the app in Dartium
 
 &rarr; Right-click `index.html` and select **Run in Dartium**.
 
 ![Click the run button](img/s1-run-in-dartium.png).
 
-{PENDING: delete `img/clickrun.png`]
+<!-- PENDING: delete `img/clickrun.png` -->
 
 Dart Editor launches _Dartium_, a special build of Chromium that has the Dart Virtual Machine built in, and loads the `index.html` file.
 The `index.html` file loads the app and calls the `main()` function.
 You should see a TO DO comment on the left and a red and white name badge on the right.
+
+<!-- Add screenshot? -->
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-0.md#step-0-set-up) | [Next >](step-2.md#step-2-add-an-input-field)

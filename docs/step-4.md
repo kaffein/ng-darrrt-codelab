@@ -155,7 +155,10 @@ or you could use multiple copies of the badge.
 
 ### Problems?
 Check your code against the files in [s4_component](../samples/s4_component).
-- [index.html](../samples/s4_component/web/index.html)
-- [main.dart](../samples/s4_component/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s4_component contain `s4_component`.
+
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-3.md#step-3-add-a-button-and-controller) | [Next >](step-5.md#step-5-use-a-class-as-a-model)

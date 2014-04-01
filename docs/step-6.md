@@ -188,7 +188,9 @@ Key information:
 
 ### Problems?
 Check your code against the files in [s6_http](../samples/s6_http).
-- [index.html](../samples/s6_http/web/index.html)
-- [main.dart](../samples/s6_http/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s6_http contain `s6_http`.
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-5.md#step-5-use-a-class-as-a-model) | [Next >](step-7.md#step-7-use-a-service-to-get-data)

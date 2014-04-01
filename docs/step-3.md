@@ -228,7 +228,10 @@ The button becomes enabled again.
 
 ### Problems?
 Check your code against the files in [s3_controller](../samples/s3_controller).
-- [index.html](../samples/s3_controller/web/index.html)
-- [main.dart](../samples/s3_controller/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s3_controller contain `s3_controller`.
+
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-2.md#step-2-add-an-input-field) | [Next >](step-4.md#step-4-create-a-custom-component)

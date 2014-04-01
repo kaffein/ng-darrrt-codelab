@@ -88,7 +88,10 @@ In the badge, the pirate name is capitalized!
 
 ### Problems?
 Check your code against the files in [s8_filter](../samples/s8_filter).
-- [index.html](../samples/s8_filter/web/index.html)
-- [main.dart](../samples/s8_filter/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s8_filter contain `s8_filter`.
+
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-7.md#step-7-use-a-service-to-get-data)

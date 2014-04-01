@@ -211,8 +211,11 @@ but you might notice that the controls are enabled by default.
 
 ### Problems?
 Check your code against the files in [s7_service](../samples/s7_service).
-- [index.html](../samples/s7_service/web/index.html)
-- [main.dart](../samples/s7_service/web/main.dart)
+
+Don't worry about differences in package names.
+Your files should contain the string `s1_basics`
+wherever the files in s7_service contain `s7_service`.
+
 
 ## [Home](../README.md#code-lab-angulardart) | [< Previous](step-6.md#step-6-read-from-a-json-encoded-file) | [Next >](step-8.md#step-8-use-a-filter-to-modify-data)
 
