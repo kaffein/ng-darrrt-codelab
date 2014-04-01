@@ -12,7 +12,7 @@ or to recover if you get off track.
 
 -----------------------------
 
-### Edit main.dart.
+### Edit main.dart
 
 &rarr; Add the following imports just above main()).
 
@@ -48,7 +48,7 @@ Key information:
   that might change the data that the app displays.
 
 
-### Edit piratebadge.html.
+### Edit piratebadge.html
 
 &rarr; Add an `ng-app` attribute to the `<html>` element:
 
@@ -98,7 +98,7 @@ Key information:
 * If you don't use `ng-cloak` and related CSS,
   Angular expressions such as `{{name}}` will be visible in your app until Angular swaps them out.
 
-### Run the app.
+### Run the app
 
 &rarr; Like before, right-click `web/index.html`, and choose **Run in Dartium**.
 
@@ -109,7 +109,7 @@ the model (the contents of the text field) changes.
 This is called _two-way data binding_.
 Angular listens for changes to the model and updates the view to reflect those changes.
 
-### Learn more about
+### Learn more
  - [How Angular does MVC](https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app#how-angular-does-mvc)
 
 ### Problems?

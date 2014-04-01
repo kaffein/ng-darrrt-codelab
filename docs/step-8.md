@@ -83,7 +83,7 @@ Key information:
 
 In the badge, the pirate name is capitalized!
 
-### Learn more about
+### Learn more
  - [Introducing Filters](https://angulardart.org/tutorial/07-ch05-filter-service.html)
 
 ### Problems?

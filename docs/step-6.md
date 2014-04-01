@@ -183,7 +183,7 @@ Key information:
   {PENDING: It seems a little weird to discuss ng-disabled now,
   when we've already used it in a previous step. Move/split discussion?}
 
-### Learn more about
+### Learn more
  - [Introducing the Http service](https://github.com/angular/angular.dart.tutorial/wiki/Introducing-filters-and-services)
 
 ### Problems?

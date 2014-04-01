@@ -27,7 +27,7 @@ at the left of the filenames or if the `packages` directory doesn't appear,
 the packages are not properly installed.
 Right-click `pubspec.yaml` and select **Pub Get**.
 
-### Open the app's source files.
+### Open the app's source files
 
 The initial app uses the following source files:
 * `pubspec.yaml`: The app's description and dependencies, used by the Dart package manager
@@ -44,11 +44,11 @@ click the **Source** tab at the bottom of the edit view.
 under the `web` directory
 double-click `index.html` and `main.dart`.
 
-![Open 3 source files](img/s1-open-files.png).
+![Open 3 source files](img/s1-open-files.png)
 
 {PENDING: delete `img/openfiles.png`}
 
-### Review the code.
+### Review the code
 
 Get familiar with `pubspec.yaml`, and with the HTML and Dart code
 for the skeleton version of the app.
@@ -149,7 +149,7 @@ Key information:
 * The `library` line isn't necessary now,
   but it will come in handy later when we add more Dart files to this app.
 
-### Run the app.
+### Run the app
 
 &rarr; Right-click `index.html` and select **Run in Dartium**.
 

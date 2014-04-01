@@ -4,13 +4,14 @@ Code Lab: AngularDart
 AngularDart is the Dart version of Angular,
 a client-side structural framework for creating dynamic web applications.
 With Angular, you can concentrate on your application’s logic, and not on DOM manipulation.
-Use HTML as the template language, extending HTML with custom elements and attributes
-to accommodate the needs of your application.
+HTML is the template language, which you can extend with
+custom elements and attributes.
 
 In this one-hour code lab, you'll create an AngularDart web app
 that generates a pirate badge.
-(If you've already completed the [first Dart code lab](https://www.dartlang.org/codelabs/darrrt/),
-this app should be familiar, but the code is completely different.)
+If you've already completed the
+[first Dart code lab](https://www.dartlang.org/codelabs/darrrt/),
+this app should be familiar, but the code is completely different.
 
 **Important:**
 AngularDart is in beta, and its API is subject to change.
@@ -18,7 +19,7 @@ Before AngularDart's 1.0 release,
 we expect to fix
 [these bugs](https://github.com/angular/angular.dart/issues?milestone=12)
 (and more).
-**This tutorial uses AngularDart version 0.9.10.**
+**This tutorial uses AngularDart version 0.9.8.**
 If you use a more recent version, you'll need to make some
 [changes](docs/diffs.md).
 <!-- put screenshot here? -->
@@ -57,7 +58,7 @@ The creators of the AngularDart code lab include:
 - [+Alexandre Ardhuin](https://plus.google.com/101145059477513456972)
 - [+Guillaume Girou](https://plus.google.com/+GuillaumeGirou), Dart Evangelist [@Sfeir](http://www.sfeir.com/)
 - [+Mathieu Breton](https://twitter.com/MatBreton), [@Xebia](http://www.xebia.fr)
-- [+Nicolas Fran\cois](https://plus.google.com/+NicolasFrancois), Dart Evangelist [@Sfeir](http://www.sfeir.com/)
+- [+Nicolas Francois](https://plus.google.com/+NicolasFrancois), Dart Evangelist [@Sfeir](http://www.sfeir.com/)
 
 _Thanks to the [+DartlangFr](http://gplus.to/dartlangfr) team._  
 

@@ -5,14 +5,14 @@ that lets you use a `<badge>` tag anywhere in your app.
 
 _**Keywords**: component, Shadow DOM_
 
-### Create a directory for the component.
+### Create a directory for the component
 
 &rarr; Under the `lib` directory,
 create a directory named `components`.
 
 The `components` directory will contain all of the files for the new component.
 
-### Create an HTML file for the component.
+### Create an HTML file for the component
 
 &rarr; Under the `components` directory,
 create a file named `badge_component.html`
@@ -29,7 +29,7 @@ with the following contents:
 </div>
 ```
 
-### Create a CSS file for the component.
+### Create a CSS file for the component
 
 &rarr; Under the `components` directory,
 create a file named `badge_component.css`
@@ -98,7 +98,7 @@ Key information:
 * The NgAttr annotation on the `name` field
   maps the field to a DOM attribute.
 
-### Use the <badge> element in the app.
+### Use the <badge> element in the app
 
 &rarr; In `index.html` replace the "badge" div with a `<badge>` element.
 
@@ -115,7 +115,7 @@ Key information:
 ...
 </pre>
 
-### Register the new component.
+### Register the new component
 
 &rarr; Edit `lib/pirate_module.dart`.
 
@@ -139,7 +139,7 @@ Key information:
   }
   </pre>
 
-### Run the app in Dartium.
+### Run the app in Dartium
 
 The app should look exactly like it did before,
 but now the code is more modular.

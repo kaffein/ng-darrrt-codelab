@@ -5,7 +5,7 @@ The Dart code for the controller goes into libraries in a new `lib` directory.
 
 _**Keywords**: controller, module, click event, defining a library_
 
-### Create a lib directory and 2 new Dart files.
+### Create a lib directory and 2 new Dart files
 
 &rarr; Create a `lib` directory at the same level as the `web` directory.
 
@@ -38,7 +38,7 @@ Key information:
   if we keep the names different.}</em>
 
 
-### Edit badge_controller.dart.
+### Edit badge_controller.dart
 
 &rarr; Add the following code to declare and import libraries.
 
@@ -107,7 +107,7 @@ to BadgeController.
 </pre>
 
 <!-- PENDING: add key info about getters -->
-### Edit pirate_module.dart.
+### Edit pirate_module.dart
 
 &rarr; Add the following code to declare and import libraries.
 
@@ -136,7 +136,7 @@ Key information:
   to the list of modules that Angular loads.
 
 
-### Edit main.dart.
+### Edit main.dart
     
 &rarr; Modify the `main()` method to instantiate PirateModule.
 
@@ -149,7 +149,7 @@ void main() {
 </pre>
     
 
-### Edit index.html. 
+### Edit index.html
 
 &rarr; Add `badge-controller` to the `<body>` element.
 
@@ -217,7 +217,7 @@ Key information:
 
 * Like `ng-click`, `ng-disabled` is a built-in AngularDart directive.
 
-### Run the app in Dartium.
+### Run the app in Dartium
 
 Once the app is running, click the button.
 "Anne Bonney" appears in the text field and badge,
