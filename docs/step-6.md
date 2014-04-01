@@ -56,8 +56,8 @@ The following steps involve editing `lib/badge_controller.dart`.
 import 'dart:async' show Future;
 ```
 
-Ignore the 'Unused import' warning from the Editor. You'll soon be using the
-import.
+Ignore the 'Unused import' warning from Dart Editor.
+You'll soon be using the import.
 
 &rarr; In the `BadgeController` class, replace the `names` and `appellations` lists with
 these static, empty lists:

@@ -96,8 +96,8 @@ import 'package:s1_basic/service/names_service.dart';
 // ...
 ```
 
-Don't worry about the 'Unused import' warning from the Editor.
-We'll fix that soon enough.
+Ignore the 'Unused import' warning from Dart Editor.
+You'll soon be using the import.
 
 &rarr; Strip out the code that's duplicated in NamesService,
 and use a NamesService object instead.
