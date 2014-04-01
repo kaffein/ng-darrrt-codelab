@@ -3,11 +3,12 @@
 In this step, you add an input field
 that updates the text of the badge.
 
-_**Keywords**: binding, scope, model_
-
 **Note**: Throughout this code lab, continue to edit the files in `s1_basics`.
 You can use the files in the other `samples` subdirectories to compare to your code
 or to recover if you get off track.
+
+_**Keywords**: binding, scope, model_
+
 
 ### Bootstrap AngularDart
 
