@@ -16,7 +16,7 @@ you need to compile your app to JavaScript.
 For example, go to **samples/s8_filter/web/index.html**,
 right-click it, and choose **Run as JavaScript**.
 
-![screenshot of Dart Editor](img/runAsJs.png)
+![screenshot of Dart Editor](img/s9-runAsJs.png)
 
 At the lower right of Dart Editor is a progress bar
 telling you the status of the build,
