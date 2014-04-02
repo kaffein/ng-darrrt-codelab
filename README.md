@@ -38,6 +38,7 @@ This code lab has the following sections:
 * [Step 6: Read from a JSON-encoded file](docs/step-6.md#step-6-read-from-a-json-encoded-file)
 * [Step 7: Use a service to get data](docs/step-7.md#step-7-use-a-service-to-get-data)
 * [Step 8: Use a filter to modify data](docs/step-8.md#step-8-use-a-filter-to-modify-data)
+* [Step 9: Run the app as JavaScript](docs/step-9.md#step-9-run-the-app-as-javascript)
 
 
 ### Useful links

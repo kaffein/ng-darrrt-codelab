@@ -32,7 +32,7 @@ it brings up the app in your default browser
 
 ### Run the app in another browser
 
-Copy the app's URL from your default browser,
+&rarr; Copy the app's URL from your default browser,
 and paste it into another browser,
 such as Safari or Firefox.
 

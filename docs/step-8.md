@@ -98,4 +98,4 @@ Your files should contain the string `s1_basics`
 wherever the files in s8_filter contain `s8_filter`.
 
 
-## [Home](../README.md#code-lab-angulardart) | [< Previous](step-7.md#step-7-use-a-service-to-get-data)
+## [Home](../README.md#code-lab-angulardart) | [< Previous](step-7.md#step-7-use-a-service-to-get-data) | [Next >](step-9.md#step-9-run-the-app-as-javascript)
