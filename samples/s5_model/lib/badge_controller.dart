@@ -22,8 +22,8 @@ class BadgeController {
     'Bill', 'Ragnar', 'Ed', 'John', 'Jane'];
 
   static const List appellations = const [
-    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
-    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];
+    'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
 
   PirateName pn = new PirateName();
 
