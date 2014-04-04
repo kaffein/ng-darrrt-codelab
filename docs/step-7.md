@@ -91,7 +91,7 @@ Now edit `lib/badge_controller.dart`.
 
 ```Dart
 // ...
-import 'package:s1_basic/services/names_service.dart';
+import 'package:s1_basics/services/names_service.dart';
 // ...
 ```
 
@@ -161,7 +161,7 @@ import `names_service.dart` and add the `NamesService` type:
 
 ```Dart
 ...
-import 'package:s1_basic/services/names_service.dart';
+import 'package:s1_basics/services/names_service.dart';
 ...
     type(NamesService);
 ...
