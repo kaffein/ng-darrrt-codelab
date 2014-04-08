@@ -22,5 +22,6 @@ What you need to change:
 * Whenever you generate a JavaScript version of your AngularDart app,
   use `pub serve` or `pub build`,
   so that the transformer runs.
+* Add URI rewrite rules to your pubspec.yaml file to rewrite templates so that pub build can find them under /packages: Add this line under transformers:  template_uri_rewrites: packages/: /packages/
 
 ##[Home](../README.md#code-lab-angulardart)
