@@ -179,7 +179,7 @@ Key information:
 <pre>
 &lt;body badge-controller <b>ng-cloak</b>>
 ...
-&lt;span id="badgeName">{{ctrl.name}}&lt;/span>
+&lt;span id="badgeName">{{name}}&lt;/span>
 </pre>
 
 &rarr; Add a `button` element under the input field.
