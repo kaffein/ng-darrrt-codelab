@@ -45,7 +45,7 @@ edit `lib/badge_controller.dart`.
 &rarr; Add the following code to declare and import libraries.
 
 <pre>
-<b>library s1_controller.badge_controller;
+<b>library s1_basics.badge_controller;
 
 import 'package:angular/angular.dart';</b>
 </pre>
