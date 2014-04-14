@@ -10,6 +10,7 @@ about what needs to change for releases after 0.9.8.
 After 0.9.10, a new
 [transformer](https://www.dartlang.org/tools/pub/assets-and-transformers.html)
 enables smaller generated JavaScript for AngularDart apps.
+Also, some API names have changed.
 
 What you need to change:
 
@@ -27,5 +28,6 @@ What you need to change:
 transformers:
   -  angular
 ```
+* `NgController` -> `Controller` (and so on, presumably, for other annotations)
 
 ##[Home](../README.md#code-lab-angulardart)
