@@ -1,13 +1,13 @@
 ## Differences Between AngularDart Versions
 
-### Changes between 0.9.8 and post-0.9.10 bleeding edge
+### Changes between 0.9.8 and the release to be named 0.10.0
 
 **Note:**
 This list is incomplete.
 Feel free to submit pull requests with more information
 about what needs to change for releases after 0.9.8.
 
-After 0.9.10, a new
+In 0.10.0, a new
 [transformer](https://www.dartlang.org/tools/pub/assets-and-transformers.html)
 enables smaller generated JavaScript for AngularDart apps.
 Also, some API names have changed.
@@ -28,6 +28,16 @@ What you need to change:
 transformers:
   -  angular
 ```
-* `NgController` -> `Controller` (and so on, presumably, for other annotations)
+* API names have changed. See
+  [this commit](https://github.com/angular/angular.dart/commit/d93b12f10d739ffa74da755ed647ec624e3e225b)
+  for details.
+  A few highlights:
+  * Most `Ng` prefixes are gone. <br>
+    Example: `NgController` &rarr; `Controller`
+  * The name _filter_ has changed to _formatter_. <br>
+    Example: `NgFilter` &rarr; `Formatter`
+  * Some classes have been deprecated
+    but don't have replacements yet. <br>
+    Example: Using `Controller` or `NgOneWay` causes Dart Editor to emit a deprecation hint.
 
 ##[Home](../README.md#code-lab-angulardart)
