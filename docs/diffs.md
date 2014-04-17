@@ -26,7 +26,7 @@ What you need to change:
 * Add the `angular` transformer to your pubspec.yaml file.
 ```     
 transformers:
-  -  angular
+-  angular
 ```
 * API names have changed. See
   [this commit](https://github.com/angular/angular.dart/commit/d93b12f10d739ffa74da755ed647ec624e3e225b)
