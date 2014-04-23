@@ -4,6 +4,12 @@
 
 library s1_basics.main;
 
+import 'package:angular/angular.dart';
+import 'package:s1_basics/pirate_module.dart';
+
+@MirrorsUsed(override: '*')
+import 'dart:mirrors';
+
 void main() {
-  // Your app starts here.
+  ngBootstrap(module: new PirateModule());
 }

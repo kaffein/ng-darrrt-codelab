@@ -5,30 +5,32 @@
 
 <!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pirate badge</title>
-    <link rel="stylesheet" href="piratebadge.css">
-  </head>
-  <body>
-    <h1>Pirate badge</h1>
-    
-    <div class="widgets">
-      TO DO: Put the UI widgets here.
-    </div>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+<title>Pirate badge</title>
+<link rel="stylesheet" href="piratebadge.css">
+</head>
+<body badge-controller ng-cloak>
+  <h1>Pirate badge</h1>
 
-    <div class="badge">
-      <div class="greeting">
-        Arrr! Me name is
-      </div>
-      <div class="name">
-        <span id="badgeName"> </span>
-      </div>
+  <div class="widgets">
+    <div>
+      <input type="text" id="inputName" maxlength="15"
+        ng-model="ctrl.name" />
     </div>
-    
-    <script src="packages/shadow_dom/shadow_dom.min.js"></script>
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
+    <div>
+      <button ng-click="ctrl.generateName()" ng-disabled="ctrl.inputIsNotEmpty">
+        {{ctrl.label}}
+      </button>
+    </div>
+  </div>
+
+  <badge name="{{ctrl.pirateName | capitalize}}"
+    style="float: left; margin-left: 20px;"></badge>
+
+  <script src="packages/shadow_dom/shadow_dom.min.js"></script>
+  <script type="application/dart" src="main.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
 </html>
